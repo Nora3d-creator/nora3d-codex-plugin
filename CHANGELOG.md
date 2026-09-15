@@ -1,3 +1,10 @@
+# 0.2.0-beta.18
+
+- Bind host OAuth requests to the initiating user, document and browser session.
+- Display consent in the original model page; reject approval from another session.
+- Preserve the original document through consent and verify fresh MCP access afterward.
+- Requires the matching gateway and website release.
+
 # 0.2.0-beta.17
 
 - Inspect authorization before opening another browser login.

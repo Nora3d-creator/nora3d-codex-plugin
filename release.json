@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0-beta.17",
+  "version": "0.2.0-beta.18",
   "channel": "test",
   "source_repository": "https://github.com/Nora3d-creator/nora3d-codex-plugin",
   "web_origin": "https://app.nora3d.ai",
@@ -9,12 +9,12 @@
     ".agents/plugins/marketplace.json": "53388bfd8dcf3541ff1a49774c33d82ac934299823b5f8c7199c7589abb653a9",
     ".gitattributes": "46fe298f7c58806f40ba13b6aea5f9621170212d2501756b045267e143682ad0",
     ".gitignore": "a52dc69b22283995fc4aa02fbea9b73ebbebd2f7e2081489ee71cc3422dcc1ac",
-    "CHANGELOG.md": "cebadcc8c52e11c5e325854416c20c2d50b6c021ae3da49397360efa30012a84",
-    "plugins/nora3d/.codex-plugin/plugin.json": "c9db0ba05e8480e567cfd0354d19e74ef4488f8c84bb9d4b7ae5b6b6bef5c18c",
+    "CHANGELOG.md": "bac71bb0ba88d8e70f7d6a18f6a5ff9b0dc255061efdd9875a601de0b1ed5202",
+    "plugins/nora3d/.codex-plugin/plugin.json": "1a9211942f7f01018a0903768ebe5757dbfadefbe6bae02f7c37b18ffff20a65",
     "plugins/nora3d/.mcp.json": "77d7388afce92bd79da3e9036471a407d4912bfc82afb991c20c6f89593b399b",
     "plugins/nora3d/assets/icon.png": "5d355f95c3d794bf6bb391b107ec121f00d1cb95dd1e52275a3d157177174b4b",
     "plugins/nora3d/skills/nora3d/references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
-    "plugins/nora3d/skills/nora3d/references/connection-recovery.md": "6d673886ca899c9d4133602f9183e605e76b5e3d0d023abee268727ae2bb3e85",
+    "plugins/nora3d/skills/nora3d/references/connection-recovery.md": "e713396eb2b6a99bb526c7e19b120daf0fffe2c86a22e68a935fffb14ea5c501",
     "plugins/nora3d/skills/nora3d/references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
     "plugins/nora3d/skills/nora3d/references/drawing-review.md": "a8fdc69a6b84baf03b9dfe990f8e91eb1b2b475d8074a756716e580437541bd9",
     "plugins/nora3d/skills/nora3d/references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
@@ -24,12 +24,12 @@
     "plugins/nora3d/skills/nora3d/references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
     "plugins/nora3d/skills/nora3d/references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "plugins/nora3d/skills/nora3d/references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
-    "plugins/nora3d/skills/nora3d/release.json": "b6d305a9998d8e9c80296ba88d1f3c5921371dc0804d3998a43091a045218897",
+    "plugins/nora3d/skills/nora3d/release.json": "91f5a91c1c7c981b5b0209e2140efd1569ec43948019fad5798c96b92c04a76d",
     "plugins/nora3d/skills/nora3d/scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
-    "plugins/nora3d/skills/nora3d/scripts/connect-codex.ps1": "18698aa139cb03398d98769810451f07d50c3b3520f19f98c84f9ab4d27d1241",
+    "plugins/nora3d/skills/nora3d/scripts/connect-codex.ps1": "1e0c78e8cfa86f1f19985a6562905ad1361911366b5b2a62b6ef5c5a45ea414c",
     "plugins/nora3d/skills/nora3d/scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed",
-    "plugins/nora3d/skills/nora3d/SKILL.md": "3b4bb340f10cf9bb932a8e205b6cfa94c9fafad4a75d9c847e2b9551c6d5342a",
-    "README.md": "07d7f5bd159439c86444f2b50f23a0e4e6495d178759aa96878d24e03f662785",
-    "TEST-CHECKLIST.md": "9ff8e524ef811a32ba4ce19b3591937bf1235ba35b288d0e5533c2cbdc51c143"
+    "plugins/nora3d/skills/nora3d/SKILL.md": "a192cbc05e2861d7e2dcc25b7130bf08c7976f238602d68c045016337800376a",
+    "README.md": "3b913a82d7b0f54851ce80e1b76ddad2b13cdaf6bf7d7cf83d5b966f28b6b703",
+    "TEST-CHECKLIST.md": "3f253ca5e7f2a65c27e0dc8c56c9f3bfbf6a6fc4655c40e3b210b97b0baddb65"
   }
 }

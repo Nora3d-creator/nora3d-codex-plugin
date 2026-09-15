@@ -1,7 +1,8 @@
 # Starts only the current host's official OAuth flow. Never reads token stores.
 [CmdletBinding()]
 param([ValidateSet('Check','Login')][string]$Mode='Check',
-      [ValidateRange(1,300)][int]$TimeoutSeconds=300)
+      [ValidateRange(1,300)][int]$TimeoutSeconds=300,
+      [ValidatePattern('^$|^[\w-]+\.[\w-]+$')][string]$ConnectionCode='')
 $ErrorActionPreference='Stop'
 
 function Write-ConnectionState($Status,$Extra=@{}) {
@@ -66,6 +67,15 @@ function Find-HostCli {
     return $valid[0]
 }
 
+function Bind-DocumentAuthorization([string]$AuthorizationUrl) {
+    try {
+        $body=@{connection_code=$ConnectionCode;authorization_url=$AuthorizationUrl} | ConvertTo-Json -Compress
+        $result=Invoke-RestMethod -Uri 'https://mcp.nora3d.ai/v1/connection-authorizations' -Method Post -ContentType 'application/json' -Body $body -TimeoutSec 12
+        if($result.status -ne 'awaiting_document_consent' -or $result.document_bound -ne $true){throw 'invalid_binding'}
+        return $result
+    } catch {throw 'document_authorization_failed'}
+}
+
 function Wait-HostLogin([string]$Executable,[int]$Seconds) {
     $process=Start-CliProcess $Executable 'mcp login nora3d'
     $seen=@{}
@@ -85,7 +95,12 @@ function Wait-HostLogin([string]$Executable,[int]$Seconds) {
                         $url=$match.Value
                         if(-not $seen.ContainsKey($url)){
                             $seen[$url]=$true
-                            Write-ConnectionState 'authorization_required' @{authorization_url=$url}
+                            if($ConnectionCode){
+                                $bound=Bind-DocumentAuthorization $url
+                                Write-ConnectionState 'awaiting_document_consent' @{authorization_id=$bound.authorization_id;document_bound=$true}
+                            } else {
+                                Write-ConnectionState 'authorization_required' @{authorization_url=$url}
+                            }
                         }
                     }
                     $reads[$i]=$streams[$i].ReadLineAsync()
@@ -119,7 +134,7 @@ function Invoke-ConnectionAssistant {
     } catch {
         $known=@('host_cli_unavailable','host_cli_ambiguous','metadata_timeout',
             'server_not_available_in_current_host','unexpected_server_configuration',
-            'non_oauth_credentials_configured','oauth_already_running','oauth_timeout','oauth_failed_or_cancelled')
+            'non_oauth_credentials_configured','oauth_already_running','oauth_timeout','oauth_failed_or_cancelled','document_authorization_failed')
         $code=$_.Exception.Message
         if($code -notin $known){$code='host_connection_failed'}
         Write-ConnectionState $code

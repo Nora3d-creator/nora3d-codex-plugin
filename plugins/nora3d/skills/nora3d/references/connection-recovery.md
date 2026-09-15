@@ -26,7 +26,7 @@ current task's shell on the affected computer with the packaged script:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "<this-skill>/scripts/connect-codex.ps1" -Mode Check
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "<this-skill>/scripts/connect-codex.ps1" -Mode Login
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "<this-skill>/scripts/connect-codex.ps1" -Mode Login -ConnectionCode "<fresh-page-connection-code>"
 ```
 
 Resolve `<this-skill>` from the installed skill path. It is not a literal path.
@@ -46,14 +46,19 @@ shell tool normally and poll its returned session at intervals no longer than
 has a five-minute limit and cleans up its own login process on exit. On refusal,
 cancellation, timeout or failure, do not silently launch another attempt.
 
-## Keep the browser identity consistent
+## Approve in the original document
 
-The CLI may open the system browser. Its `authorization_required` result includes
-the actual authorization URL. If that browser is different from the one holding
-the intended Nora3D account, open the emitted URL in a **new tab of that same
-browser profile** using available browser tools. Preserve the original model tab
-and any draft. Use only the URL returned by the helper, not a fabricated callback
-or an old screenshot. Do not complete two parallel consent flows.
+Read the fresh connection code automatically from the intended model page and pass
+it to the helper. This restricts the real host PKCE request to the page's server-
+verified user, document and browser session. The original page displays consent
+automatically. Keep that page visible and tell the user to approve there. Do not
+approve for them. A second browser cannot approve this document-bound request.
+
+The CLI may also open a system-browser tab. Do not use that tab to sign in again.
+The bound request's landing page directs the user back to their existing document.
+The helper emits `awaiting_document_consent` after binding. If binding fails or is
+unavailable, do not silently fall back to an unbound request or retry indefinitely.
+Only an initial host install flow with no existing document can use unbound OAuth.
 
 The user confirms the identified account on the authorization page. If the page
 shows another account, let them switch/sign in there; do not silently authorize

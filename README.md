@@ -11,7 +11,7 @@ The plugin follows your conversation language.
    and empty Sparse paths. Your GitHub account needs access to this private repository.
 2. Install **Nora3D Online Beta** from **Nora3D Beta** and complete the account
    authorization opened by Codex. Sign in to the Nora3D account you intend to use.
-3. Confirm version **0.2.0-beta.17** and start a new task using the plugin.
+3. Confirm version **0.2.0-beta.18** and start a new task using the plugin.
 
 GitHub access downloads the private package; Nora3D authorization connects your CAD
 account. They are separate. Public availability has not been enabled.
@@ -32,11 +32,12 @@ document where the current host can identify and control it. It avoids opening a
 second browser login blindly. Keep the modeling page open.
 
 If your intended page and plugin use different accounts, the assistant explains the
-target account and starts the supported authorization flow directly. You sign in and
-approve access on the actual authorization page. There is no extra chat approval
+target account and starts the supported authorization flow directly. The request is bound to the current document session, and you
+approve access inside that same modeling page using its signed-in account. There is no extra chat approval
 or requirement to type commands. A successful account/document check must follow
 the OAuth callback before modeling resumes.
 
+This release requires the matching document-authorization service and website update.
 The included Windows recovery helper uses Codex's actual installed CLI, with bounded
 waiting, duplicate-flow prevention and no credential-store edits. This requires a
 host that permits local shell execution. If the host blocks execution, lacks a login

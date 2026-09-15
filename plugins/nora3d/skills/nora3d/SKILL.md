@@ -44,7 +44,9 @@ a successful connection. Complete the requested modeling task once verified.
    pause.** The user signs in and approves access in the actual OAuth page; starting
    that page is not approving it. Respect any explicit instruction not to change
    the connection. Read [connection recovery](references/connection-recovery.md)
-   and use the packaged Windows helper if no callable host login action exists.
+   and use the packaged Windows helper with the intended page's fresh
+   `-ConnectionCode` to bind the host request. The user approves directly in the
+   original model page. Do not send them to sign in with another browser account.
 5. Keep the original modeling request and document. After OAuth completes, call
    the tools afresh and reverify that document. Callback success alone is not proof
    the current MCP connection picked up the account. Resume automatically on a

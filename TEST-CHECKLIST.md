@@ -1,6 +1,6 @@
-# Nora3D 0.2.0-beta.17: new-computer acceptance
+# Nora3D 0.2.0-beta.18: new-computer acceptance
 
-Install from Git or the extracted local folder using README.md. Confirm **0.2.0-beta.17**
+Install from Git or the extracted local folder using README.md. Confirm **0.2.0-beta.18**
 in plugin Information before testing. Keep only one Online Beta plugin enabled.
 
 1. **First use:** start a new task, mention Nora3D and check the response follows
@@ -37,3 +37,9 @@ establish that Git updating works. Test cancellation, timeout, and an already-ru
 authorization: no duplicate flow, no writes, and no hidden retry. Test a different
 system-browser account from the intended document browser. A callback with a stale
 host identity must be reported accurately rather than called success.
+
+Document-bound recovery: keep the original document open under account B while the
+plugin uses account A. Consent must appear in B's original page without another
+login. Approval from A, a second B document or a replaced session must fail. Cancel
+must stop approval. After approval, verify the refreshed MCP account and exact
+document, create a test plate, save and reopen it. A callback alone is insufficient.
