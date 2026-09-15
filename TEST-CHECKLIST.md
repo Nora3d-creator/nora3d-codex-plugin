@@ -1,6 +1,6 @@
-# Nora3D 0.2.0-beta.16: new-computer acceptance
+# Nora3D 0.2.0-beta.17: new-computer acceptance
 
-Install from the private Git marketplace using README.md. Confirm **0.2.0-beta.16**
+Install from Git or the extracted local folder using README.md. Confirm **0.2.0-beta.17**
 in plugin Information before testing. Keep only one Online Beta plugin enabled.
 
 1. **First use:** start a new task, mention Nora3D and check the response follows
@@ -26,10 +26,14 @@ in plugin Information before testing. Keep only one Online Beta plugin enabled.
    for OAuth merely because the workspace changed. If it fails, record both visible
    document identity and the non-secret workspace-list result.
 9. **Account mismatch:** when intentionally testing a different Nora3D account,
-   verify that the plugin explains a confirmed mismatch and requests consent for
-   that account. It must not silently switch identities or use another user's model.
+   verify that the plugin explains a confirmed mismatch and starts the host OAuth
+   flow without another chat approval. The user approves the actual consent page
+   for that account. Verify a fresh MCP identity and document check before resuming; It must not silently switch identities or use another user's model.
 
 Record the plugin version, step, expected/actual outcome and error text. Avoid
 sharing passwords, tokens or OAuth callback URLs. Use test documents, not originals.
-Also verify Git marketplace Upgrade after a later release; an authenticated clone
-alone cannot establish that automatic background updating works.
+Also test Git marketplace Upgrade and new-task instruction pickup. The ZIP cannot
+establish that Git updating works. Test cancellation, timeout, and an already-running
+authorization: no duplicate flow, no writes, and no hidden retry. Test a different
+system-browser account from the intended document browser. A callback with a stale
+host identity must be reported accurately rather than called success.

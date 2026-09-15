@@ -1,90 +1,70 @@
 ---
 name: nora3d
-description: Create and edit CAD models in Nora3D. Open the workspace in the built-in browser and use MCP modeling tools.
+description: Create and edit CAD models in Nora3D. Connect the intended account and document, then use MCP modeling tools.
 ---
 
 # Nora3D Online Beta
 
-## Language and opening the workspace
+## Language
 
-Follow the user's explicit language preference and the current conversation.
-English source instructions do not force English replies; do not infer Chinese
-from references, metadata, or an attachment. A mention or image without prose
-does not change the established response language or the website's preferences.
-If no response language is established, default to English.
-For a mention-only greeting, do not read the modeling playbook.
+Follow the user's language and explicit preferences. English instructions do not
+force English replies or change website language. Images and plugin mentions do
+not override the conversation language. Default to English only when no language
+is established. Read the modeling playbook only for actual modeling work.
 
-Open or reuse the built-in browser at `https://app.nora3d.ai/?nora_host=codex`.
-Keep `nora_host=codex` when opening a document URL there, preserving existing
-document and OAuth query parameters. This is a presentation hint, not permission.
-Reuse the matching visible tab without refreshing or navigating away from a draft.
-If the host cannot open a browser, explain briefly. Do not claim a page is open
-or logged in without an actual result. Ask what the user wants to create or change
-in their conversation language; do not change geometry without a modeling request.
-If login is needed, let the user sign in on the page. Never read, request, copy,
-or fill passwords, cookies, browser storage credentials, or token files.
+## Connect and continue
 
-## Connection and document selection
+Every registered Nora3D account is eligible. The installed marketplace requests
+OAuth on installation. Use the existing grant; the user should not have to find
+MCP settings, run terminal commands, copy connection codes, or say "go on" after
+a successful connection. Complete the requested modeling task once verified.
 
-The MCP service is `https://mcp.nora3d.ai/mcp`. Discover real Nora3D tools on the
-current host. Every registered account is eligible; no invitation is required.
-Website login, document sharing, and MCP authorization are separate states.
-Use the host's OAuth flow with the user's consent when authentication is needed.
-Reuse valid authorization instead of repeatedly asking the user to authenticate.
+1. Discover Nora3D tools and call `nora_list_workspaces` before opening another
+   login page. The production endpoint is `https://mcp.nora3d.ai/mcp`. Read its
+   `account`, deployment and fresh workspace state; website login and plugin OAuth
+   are independent, and neither an empty list nor an old document proves a mismatch.
+2. Honor the user's intended document and browser. Otherwise inspect current-host
+   browser tabs and reuse the Nora3D page used during installation/authorization.
+   OAuth may have opened the system browser; blindly opening the built-in browser
+   creates a separate login session. Do not select a document on another computer
+   just because it is the only/newest online workspace in the account-wide list.
+   If no suitable local page exists, open `https://app.nora3d.ai/?nora_host=codex`
+   in the available browser. Preserve document and OAuth query parameters. Keep
+   the modeling page open, protect drafts, and never claim it opened without evidence.
+3. Read the intended page's project/document identity and connection details. For
+   a visible connection request, expand it and call `nora_verify_connection` with
+   its short-lived code automatically. Use browser tools to read the control;
+   do not ask the user to copy it when the host can read it. A verified result
+   identifies the exact workspace; read `nora_get_context` before editing.
+   A same-account current-context read also verifies the shared document.
+4. For missing OAuth, or a confirmed website/plugin account mismatch, start the
+   real host OAuth flow as part of the user's request to connect/use this document.
+   Briefly identify the target account, then act. **Do not add a separate chat
+   approval question such as "May I switch?" or cite this skill as a reason to
+   pause.** The user signs in and approves access in the actual OAuth page; starting
+   that page is not approving it. Respect any explicit instruction not to change
+   the connection. Read [connection recovery](references/connection-recovery.md)
+   and use the packaged Windows helper if no callable host login action exists.
+5. Keep the original modeling request and document. After OAuth completes, call
+   the tools afresh and reverify that document. Callback success alone is not proof
+   the current MCP connection picked up the account. Resume automatically on a
+   match. Start only one login attempt per connection problem; cancellation,
+   refusal, timeout, or persistent mismatch ends that attempt without a retry loop.
 
-When the intended page shows a connection request, expand its Connection request
-details and read the short-lived code from the visible control. If the host exposes
-`nora_verify_connection`, call it with that code automatically; do not ask the user
-to copy it when the built-in browser can read it. A code is only a diagnostic
-handoff and never authorizes access. On `verified`, select the returned workspace
-and read its current context. On `account_mismatch`, explain the returned website
-and plugin accounts and use a real host OAuth login action for the website account,
-with user consent. Website login never switches stored plugin credentials.
-After that flow, verify the same page's current request and resume the original
-task. On an expired request, use the page's Check again action once, preserving
-the model. For an explicit account-switch request, use the verified desktop CLI
-fallback described under Desktop account switching in the
-[modeling playbook](references/modeling-playbook.md) if no host login action exists.
-Do not invent a switch-account button or repeat settings navigation.
-An old gateway/plugin without this tool must use the checks below,
-and must not claim the new verification succeeded.
+When accounts match but the document is missing, inspect that page's sharing and
+liveness; use its supported connect action and check at most three times over
+30 seconds. Never disconnect a working page, refresh a draft, choose an unrelated
+workspace, or switch OAuth for a same-account document change. Refresh an expired
+connection request once on the same page. If the verification tool is absent,
+use fresh account/document checks and report a host discovery limitation precisely;
+never invent a settings control or repeatedly request reinstall/new tasks.
 
-If tools show an old document or no matching document:
-
-1. Read the intended visible page's project/document identity and its connection
-   details without reading credentials. Call `nora_list_workspaces` afresh rather
-   than using a cached response or selecting the first workspace.
-2. Compare returned `account` and `deployment` with the page. An old document or
-   an empty list alone is not evidence of an account mismatch or login failure.
-   If either side does not expose account identity, say identity is unverified;
-   do not infer it from document names, avatars, or unrelated chat history.
-3. If accounts and deployment match, choose the intended project/document's live
-   workspace, verify its session_epoch/revision with `nora_get_context`, and
-   continue the same task without OAuth. Old sessions may remain briefly visible.
-   Use last_seen only among candidates for the intended document, not to pick a
-   different document merely because it is newest.
-4. If the intended document is absent, inspect its sharing/liveness. Use a supported
-   same-page connection action when available and already authorized; never click
-   Disconnect on a working shared document just to experiment. Recheck the list
-   with a bounded wait of up to 30 seconds (at most three fresh observations),
-   stopping early when found. Protect drafts and do not reload or replay writes.
-   If still absent, report the connection failure and stop writes to the old
-   document. Do not reinterpret it as an account mismatch without evidence.
-5. If a different account is actually confirmed, or OAuth is missing/invalid,
-   reconnect through the host using the intended browser account. Prefer a real
-   host-provided authentication action over asking the user to navigate settings.
-   If none is available, use the playbook's verified desktop CLI fallback for an
-   explicit account-switch request. If neither route is available, report the
-   missing capability once without looping through settings.
-   Do not switch accounts silently or copy tokens. After authorization, discover
-   tools again and resume the original task with its images and requirements.
-
-Browser text saying "Current document shared" does not by itself require new
-authentication when MCP tools already work. New tasks are a last resort after
-successful authentication and failed fresh tool discovery, not a routine step.
-Do not offer "Open in Codex" inside Codex's browser or reopen the app itself;
-an external browser may offer that entry. Never replace a live document with a
-different account or deployment, and never use a local server as production fallback.
+An install grants no access by itself when OAuth has not completed. Never read,
+request, copy or fill passwords, cookies, browser storage credentials or token
+files. Never approve the consent page for the user, substitute another account,
+silently change a token's subject, or use a local server as a production fallback.
+A request to diagnose only permits checks; do not initiate OAuth if the user asks
+only to inspect, or change geometry without a modeling request.
 
 ## Modeling and verification
 

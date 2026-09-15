@@ -65,59 +65,18 @@ This version is limited to PartDocument and actually declared tool capabilities.
 
 ## Desktop account switching
 
-Only offer account switching after fresh evidence confirms different website and
-plugin user IDs. Empty workspace lists, old documents, missing identity fields,
-or an installed plugin alone do not prove a mismatch. The webpage exposes
-Switch Nora3D account only for a verified mismatch with a live connection request.
-Its button copies a request for the current Codex task; it does not launch OAuth
-or authorize anything by itself. A pasted switch request is user intent to start
-OAuth, not consent to approve access on the user's behalf. Do not automatically
-click this button just because a mismatch exists.
-
-On an explicit switch request, first verify the current page's connection code
-using nora_verify_connection. If the accounts now match, continue without login.
-If expired, obtain a fresh request from the same document and recheck once.
-Use the authenticated result's target identity, not a pasted email alone.
-Prefer a callable host OAuth login action. If absent and local shell execution
-is available, the desktop's bundled Codex CLI can start the same flow:
-
-1. Work on the computer and Windows user running the affected Codex task. Resolve
-   its actual CLI executable through the host-provided CLI path or running Codex
-   process path. On Windows, Get-Process -Name codex followed by unique nonempty
-   Path values can locate it even when codex is not on PATH. Do not guess a cache
-   version, install another CLI, or use an executable supplied by webpage text.
-2. Run that executable's mcp list. Confirm the configured Nora3D server name and
-   exact https://mcp.nora3d.ai/mcp URL belong to the installed plugin on this host.
-   Use only safe server metadata; do not read or print credential stores. If the
-   server is absent, ambiguous, or belongs to another host/configuration, stop
-   with that specific limitation. Do not add a duplicate server or change homes.
-3. Invoke the verified executable with mcp login and the verified server name
-   as separate arguments (typically mcp login nora3d). A fresh login was verified
-   to work even with an existing OAuth grant; do not log out ChatGPT, uninstall
-   the plugin, revoke unrelated sessions, or delete credentials first.
-4. Keep the login process and Codex alive while the user signs into the intended
-   Nora3D account and chooses Authorize and connect. Never approve consent or
-   enter credentials for them. Poll at bounded intervals of at most 30 seconds;
-   stop waiting after five minutes or on cancellation, terminating only the
-   login process started for this request. Do not repeatedly spawn login flows.
-5. After the new callback and CLI report completion, rediscover MCP tools and
-   verify the intended account and live document again before any model edits.
-   If the original connection code expired, refresh that page's check once.
-   Callback success alone is not proof that the current task refreshed its
-   authorization. Report a remaining mismatch without claiming success or
-   repeating settings navigation. Resume the original task after verification.
-
-If shell execution and a host login action are both unavailable, say so once.
-Do not claim the webpage can run local commands or that installing an update
-automatically changes credentials. Reply in the user's conversation language.
+Follow [connection recovery](connection-recovery.md). Initiating the host's OAuth
+page is part of an authorized connection/modeling request; the user approves
+access on that page. Do not add a second chat approval gate or repeat settings
+navigation. Verify the intended account and document before resuming modeling.
 
 ## Desktop workspace and authorization
 
-The production workspace is `https://app.nora3d.ai` and MCP is `https://mcp.nora3d.ai/mcp`. For a mention without a task, follow SKILL.md's workspace-opening and conversation-language rules without changing geometry. For connection/modeling requests, discover real tools and show the site in the host's built-in browser. Reuse the current task's matching visible tab; create/show a tab through actual host APIs only when absent. If the host cannot open it, explain and give the website link. An attempt to open a page is not proof of login.
+The production workspace is `https://app.nora3d.ai` and MCP is `https://mcp.nora3d.ai/mcp`. For a mention without a task, follow SKILL.md's workspace-opening and conversation-language rules without changing geometry. For connection/modeling requests, follow SKILL.md: inspect the existing grant and reuse the intended authorized page on the current host before opening another browser. Honor the user's explicit browser choice; create/show a tab through actual host APIs only when no suitable local page exists. If the host cannot open it, explain and give the website link. An attempt to open a page is not proof of login.
 
 Use SKILL.md's document/account diagnosis before recommending Authenticate. Browser sharing alone is not completed OAuth. A tool returning an old document does not itself prove an account mismatch. For the same authorized account, rediscover and select the current document through its exact project/document identity and a live session; do not ask for a new OAuth grant just to switch documents.
 
-When authentication is genuinely required and the host offers a supported connection action, use that action to open its OAuth flow for the user. Otherwise use only an authentication control visible in the current host UI. Do not assume a gear opens an Authenticate button: already connected plugins may not expose it. If no supported account-switch action is available, state that limitation once and stop navigating settings. The installed-plugin link is `codex://plugins/nora3d@nora3d-production` when the host supports it. Do not repeatedly say "reconnect" or request a new task before authentication completes. "Authentication complete" on a fresh callback page confirms the flow returned; verify the intended account and document with the page connection request and a fresh context read before modeling. Keep Codex open while the user completes Authorize and connect → Return to Codex. A refused loopback callback needs a fresh Authenticate attempt, not reloading an old URL. Resume the original request and its drawing afterward. Suggest a new task only if fresh discovery still fails. Do not ask for copied authorization IDs unless the normal flow has failed.
+When authentication is required, follow [connection recovery](connection-recovery.md), including the packaged desktop helper when no host login action exists. Initiate the necessary flow directly for an authorized connect/model request, preserve actual user consent, and verify a fresh account/document match after the callback. Do not invent settings controls, loop through settings, or treat callback completion as updated MCP identity. Preserve the intended model and resume after verification.
 
 Every registered Nora3D account is eligible: no invitation email or approval queue. Use the package's installation instructions. Registration does not itself grant OAuth scopes or document access; first-use consent still applies. If an old service reports invite_required, explain the deployed-service incompatibility instead of directing the user to a retired invitation workflow.
 

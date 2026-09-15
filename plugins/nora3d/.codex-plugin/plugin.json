@@ -1,6 +1,6 @@
 {
   "name": "nora3d",
-  "version": "0.2.0-beta.16",
+  "version": "0.2.0-beta.17",
   "description": "Create, inspect, and edit CAD models in Nora3D with Codex.",
   "author": {
     "name": "Nora3D",
@@ -19,7 +19,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Open Nora3D (https://app.nora3d.ai/?nora_host=codex), connect my part document, and read the current model.",
+      "Connect Nora3D to my intended part document, complete any necessary account connection, and read the current model.",
       "Create an 80 x 50 x 6 mm plate with a 10 mm diameter through-hole at the center.",
       "Check the dimensions and save status of the current part."
     ],

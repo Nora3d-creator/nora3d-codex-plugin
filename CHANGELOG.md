@@ -1,9 +1,16 @@
+# 0.2.0-beta.17
+
+- Inspect authorization before opening another browser login.
+- Initiate necessary OAuth without a redundant chat approval; preserve actual user consent.
+- Add a Windows host CLI helper with timeout, safe output and concurrent-flow prevention.
+- Require fresh account/document verification after the callback and resume the task.
+- Keep technical modeling guides and both geometry algorithms unchanged.
+
 # Changelog
 
 ## 0.2.0-beta.16 — 2026-09-13
 
-- Private Git marketplace test release; repository access is required.
-- Preserve exact file bytes and checksums across Windows Git checkouts.
+- Local test candidate; not yet published to GitHub.
 - Add public repository metadata, the Nora3D icon, and Git installation/update guidance.
 - Correct the packaged skill checksum inventory after entry-point/playbook separation.
 - Remove private source paths, internal Git baselines, and development postmortems.
