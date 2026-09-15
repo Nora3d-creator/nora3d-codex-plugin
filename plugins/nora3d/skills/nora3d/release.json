@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.20",
+  "version": "0.2.0-beta.21",
   "channel": "test",
   "production_verified": false,
   "files": {
-    "SKILL.md": "b086f52f6e631e3e0399ed538bd1e2fd8014dfee2dffb5417bbb09f982caee9a",
+    "SKILL.md": "9d70013314317d3903ade35cac03840b616d98b0dba4a3e7e65d34eb694d8d16",
     "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
-    "references/connection-recovery.md": "3730644b3fc727f6fd80ebfdfbc58d1c90826ccb92a7c00495f967387a7f754e",
+    "references/connection-recovery.md": "c0bdff2a338162553a67bf982766cbe808ca1bb1e9844e93b360f6e2dd2603ef",
     "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
     "references/drawing-review.md": "a8fdc69a6b84baf03b9dfe990f8e91eb1b2b475d8074a756716e580437541bd9",
     "references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
     "references/folding.md": "81fc8467b1c7213c979d69f1b29b6ee98fc326f648addbeaecab6a48284817bf",
     "references/geometry-check.md": "8276d953bfaa27d502e3e97adf22a17ba79a60514ca96ae9c7b1cc2435cc7d6e",
-    "references/modeling-playbook.md": "f4a00a508321c69de603c6341c42e15f1d7fe6afd36b3016ccd1b3f76fb7ec98",
+    "references/modeling-playbook.md": "fea405042eade6553e1911aca88429d83d1c08f83c93d4c594e06cbce14aeeef",
     "references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
     "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
@@ -20,5 +20,5 @@
     "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed"
   },
-  "bundle_sha256": "cdaec71ca869d975335297358da0ef0ebae962672929936cd1d23dbd6a6ed83b"
+  "bundle_sha256": "9b9eaf007aff7eeb2b8a419598fb5b20a2fe5bd9a46d8608c2ac59543484184e"
 }

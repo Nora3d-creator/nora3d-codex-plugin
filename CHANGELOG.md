@@ -1,3 +1,14 @@
+# 0.2.0-beta.21
+
+- Pressing Codex on the signed-in Nora3D page connects that document silently:
+  no Reconnect prompt, consent dialog, account comparison or visible code.
+- Documents connected from a page signed in as another account are used through
+  a page-session delegation; the plugin's own authorization is unchanged.
+- The page replaces an expired connection code itself; the assistant reuses a
+  listed workspace matching the page or reads the hidden code once.
+- Requires the matching gateway (page delegation) and website release. First
+  installation still uses the host's one-time account consent.
+
 # 0.2.0-beta.20
 
 - Keep the native Reconnect document target valid for 30 minutes while the
