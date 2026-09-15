@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.18",
+  "version": "0.2.0-beta.19",
   "channel": "test",
   "production_verified": false,
   "files": {
     "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
-    "references/connection-recovery.md": "e713396eb2b6a99bb526c7e19b120daf0fffe2c86a22e68a935fffb14ea5c501",
+    "references/connection-recovery.md": "cc0c1b8d4b5b1df556129c090391e10e39f432a9fc3446e196fb59d41434d58a",
     "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
     "references/drawing-review.md": "a8fdc69a6b84baf03b9dfe990f8e91eb1b2b475d8074a756716e580437541bd9",
     "references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
@@ -16,9 +16,9 @@
     "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
     "scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
-    "scripts/connect-codex.ps1": "1e0c78e8cfa86f1f19985a6562905ad1361911366b5b2a62b6ef5c5a45ea414c",
+    "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed",
-    "SKILL.md": "a192cbc05e2861d7e2dcc25b7130bf08c7976f238602d68c045016337800376a"
+    "SKILL.md": "862383f19816495885fd36b0d143268684e5cccffb33a620aba0e57b68cd6ab0"
   },
-  "bundle_sha256": "575069b76575d7c0bc4ebb2d17dfa1f1b3d998e3a7789cea12b2f4215b3ebae0"
+  "bundle_sha256": "de39fe82a2832a0f487b82070a4e7e117700a4fe4c80a386e4b80e2ba45551af"
 }

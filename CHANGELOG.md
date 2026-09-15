@@ -1,3 +1,12 @@
+# 0.2.0-beta.19
+
+- Recover account mismatches through the native Codex Reconnect prompt.
+- Bind authorization to the account and session in the intended document page.
+- Keep current model pages open; verify refreshed MCP identity before continuing.
+- Remove shell execution from the normal recovery flow and preserve consent.
+- Require the matching native authorization service; affected-computer acceptance
+  remains separate from automated contract verification.
+
 # 0.2.0-beta.18
 
 - Bind host OAuth requests to the initiating user, document and browser session.

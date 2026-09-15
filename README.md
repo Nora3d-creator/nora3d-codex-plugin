@@ -11,7 +11,7 @@ The plugin follows your conversation language.
    and empty Sparse paths. Your GitHub account needs access to this private repository.
 2. Install **Nora3D Online Beta** from **Nora3D Beta** and complete the account
    authorization opened by Codex. Sign in to the Nora3D account you intend to use.
-3. Confirm version **0.2.0-beta.18** and start a new task using the plugin.
+3. Confirm version **0.2.0-beta.19** and start a new task using the plugin.
 
 GitHub access downloads the private package; Nora3D authorization connects your CAD
 account. They are separate. Public availability has not been enabled.
@@ -31,18 +31,16 @@ The assistant checks the existing connection first and reuses the intended autho
 document where the current host can identify and control it. It avoids opening a
 second browser login blindly. Keep the modeling page open.
 
-If your intended page and plugin use different accounts, the assistant explains the
-target account and starts the supported authorization flow directly. The request is bound to the current document session, and you
-approve access inside that same modeling page using its signed-in account. There is no extra chat approval
-or requirement to type commands. A successful account/document check must follow
-the OAuth callback before modeling resumes.
+If your intended page and plugin use different accounts, Codex shows a native
+**Reconnect** prompt after checking the document. Click it, then approve in the
+original modeling page. That page's account is the authorization target. Codex
+refreshes its connection, and the assistant verifies the account and document
+before continuing. No PowerShell command or extra chat approval is required.
 
-This release requires the matching document-authorization service and website update.
-The included Windows recovery helper uses Codex's actual installed CLI, with bounded
-waiting, duplicate-flow prevention and no credential-store edits. This requires a
-host that permits local shell execution. If the host blocks execution, lacks a login
-action, or keeps an old OAuth identity in memory, the assistant must explain that
-specific remaining host action. The package does not bypass those host restrictions.
+This release requires the matching native document-authorization service and
+document-consent website. Hosts must support native MCP OAuth error prompts.
+If a host does not show the prompt or refresh its identity, report that exact
+behavior. First-time installation still requires account consent.
 
 ## Update
 

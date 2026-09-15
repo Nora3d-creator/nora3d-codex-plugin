@@ -1,6 +1,6 @@
-# Nora3D 0.2.0-beta.18: new-computer acceptance
+# Nora3D 0.2.0-beta.19: new-computer acceptance
 
-Install from Git or the extracted local folder using README.md. Confirm **0.2.0-beta.18**
+Install from Git or the extracted local folder using README.md. Confirm **0.2.0-beta.19**
 in plugin Information before testing. Keep only one Online Beta plugin enabled.
 
 1. **First use:** start a new task, mention Nora3D and check the response follows
@@ -43,3 +43,11 @@ plugin uses account A. Consent must appear in B's original page without another
 login. Approval from A, a second B document or a replaced session must fail. Cancel
 must stop approval. After approval, verify the refreshed MCP account and exact
 document, create a test plate, save and reopen it. A callback alone is insufficient.
+
+Restricted-host acceptance: with shell execution disabled and a previous plugin
+grant for account A, open the intended document as account B. The connection check
+must display native Reconnect. Click it; consent must appear in B's original page.
+Approve there and verify the actual refreshed MCP identity is B. No shell check,
+login command or execution-policy change should run. Then complete model/save/reopen.
+If the native prompt or live credential refresh fails, record that exact step;
+gateway contract tests do not establish affected-computer acceptance.

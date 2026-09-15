@@ -19,6 +19,11 @@ OAuth on installation. Use the existing grant; the user should not have to find
 MCP settings, run terminal commands, copy connection codes, or say "go on" after
 a successful connection. Complete the requested modeling task once verified.
 
+The account signed in on the user's intended browser document is the target.
+An account returned by MCP describes the stored plugin grant, not an instruction
+to use that account. Never ask the user to log the website into the old plugin
+account to resolve a mismatch. Keep their chosen browser account and document.
+
 1. Discover Nora3D tools and call `nora_list_workspaces` before opening another
    login page. The production endpoint is `https://mcp.nora3d.ai/mcp`. Read its
    `account`, deployment and fresh workspace state; website login and plugin OAuth
@@ -37,16 +42,13 @@ a successful connection. Complete the requested modeling task once verified.
    do not ask the user to copy it when the host can read it. A verified result
    identifies the exact workspace; read `nora_get_context` before editing.
    A same-account current-context read also verifies the shared document.
-4. For missing OAuth, or a confirmed website/plugin account mismatch, start the
-   real host OAuth flow as part of the user's request to connect/use this document.
-   Briefly identify the target account, then act. **Do not add a separate chat
-   approval question such as "May I switch?" or cite this skill as a reason to
-   pause.** The user signs in and approves access in the actual OAuth page; starting
-   that page is not approving it. Respect any explicit instruction not to change
-   the connection. Read [connection recovery](references/connection-recovery.md)
-   and use the packaged Windows helper with the intended page's fresh
-   `-ConnectionCode` to bind the host request. The user approves directly in the
-   original model page. Do not send them to sign in with another browser account.
+4. For a confirmed account mismatch, `nora_verify_connection` returns the native
+   OAuth challenge. Read [connection recovery](references/connection-recovery.md).
+   Briefly identify the current document account and tell the user to use Codex's
+   **Reconnect** prompt, then approve in the original model page. Do not ask an
+   extra chat approval question. The host initiates OAuth and reloads MCP; do not
+   run a shell helper, change settings or ask the user to log into the old account.
+   Keep the document visible. Never approve consent on the user's behalf.
 5. Keep the original modeling request and document. After OAuth completes, call
    the tools afresh and reverify that document. Callback success alone is not proof
    the current MCP connection picked up the account. Resume automatically on a
@@ -60,6 +62,9 @@ workspace, or switch OAuth for a same-account document change. Refresh an expire
 connection request once on the same page. If the verification tool is absent,
 use fresh account/document checks and report a host discovery limitation precisely;
 never invent a settings control or repeatedly request reinstall/new tasks.
+If the native prompt is unavailable or the host retains the old identity after
+completion, report that specific limitation once. Do not route this recovery
+through shell execution or override the host's execution policy.
 
 An install grants no access by itself when OAuth has not completed. Never read,
 request, copy or fill passwords, cookies, browser storage credentials or token

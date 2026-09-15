@@ -4,6 +4,7 @@ param([ValidateSet('Check','Login')][string]$Mode='Check',
       [ValidateRange(1,300)][int]$TimeoutSeconds=300,
       [ValidatePattern('^$|^[\w-]+\.[\w-]+$')][string]$ConnectionCode='')
 $ErrorActionPreference='Stop'
+$script:ConnectionFailureDetails=@{}
 
 function Write-ConnectionState($Status,$Extra=@{}) {
     $value=@{status=$Status;server='nora3d';url='https://mcp.nora3d.ai/mcp'}
@@ -30,7 +31,22 @@ function Read-ServerMetadata([string]$Executable) {
         $stdout=$process.StandardOutput.ReadToEndAsync()
         $stderr=$process.StandardError.ReadToEndAsync()
         if(-not $process.WaitForExit(10000)){throw 'metadata_timeout'}
-        if($process.ExitCode -ne 0){throw 'server_not_available_in_current_host'}
+        if($process.ExitCode -ne 0){
+            # A sandbox can hide plugin/config discovery even when this task has
+            # live MCP tools. Report an execution check, not an account failure.
+            # Classify only; never return the raw stderr or configuration.
+            $errorText=$stderr.GetAwaiter().GetResult()
+            $script:ConnectionFailureDetails=@{phase='metadata';cli_exit_code=$process.ExitCode;oauth_started=$false}
+            if($errorText -match 'Permission denied|Access is denied|os error (5|13)\b'){
+                $script:ConnectionFailureDetails.next_action='check_host_execution_access'
+                throw 'host_access_denied'
+            }
+            if($errorText -match "No MCP server named 'nora3d' found"){
+                $script:ConnectionFailureDetails.next_action='check_host_execution_access'
+                throw 'server_not_available_in_current_host'
+            }
+            throw 'host_configuration_error'
+        }
         $server=$stdout.GetAwaiter().GetResult() | ConvertFrom-Json
         if($server.name -ne 'nora3d' -or $server.enabled -ne $true -or
             $server.transport.type -notin @('streamable_http','http') -or
@@ -119,6 +135,7 @@ function Wait-HostLogin([string]$Executable,[int]$Seconds) {
 }
 
 function Invoke-ConnectionAssistant {
+    $script:ConnectionFailureDetails=@{}
     $mutex=$null;$ownsMutex=$false
     try {
         $cli=Find-HostCli
@@ -133,11 +150,11 @@ function Invoke-ConnectionAssistant {
         }
     } catch {
         $known=@('host_cli_unavailable','host_cli_ambiguous','metadata_timeout',
-            'server_not_available_in_current_host','unexpected_server_configuration',
+            'server_not_available_in_current_host','host_access_denied','host_configuration_error','unexpected_server_configuration',
             'non_oauth_credentials_configured','oauth_already_running','oauth_timeout','oauth_failed_or_cancelled','document_authorization_failed')
         $code=$_.Exception.Message
         if($code -notin $known){$code='host_connection_failed'}
-        Write-ConnectionState $code
+        Write-ConnectionState $code $script:ConnectionFailureDetails
         exit 1
     } finally {
         if($ownsMutex){$mutex.ReleaseMutex()}
