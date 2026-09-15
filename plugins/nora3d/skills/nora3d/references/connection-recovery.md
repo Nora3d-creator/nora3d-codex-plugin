@@ -13,17 +13,23 @@ and continue the original task without another login.
 
 A confirmed mismatch returns a standard OAuth error result with
 `_meta["mcp/www_authenticate"]`. Supported Codex desktop hosts display their native
-**Reconnect** prompt. Tell the user to click that prompt and then approve access
-in the original Nora3D document page. Do not add a separate chat approval question.
-Do not run `connect-codex.ps1`, attempt sandbox-external execution, edit settings,
-delete credentials, reinstall, or invent a host tool as the normal recovery path.
-The host starts OAuth itself and refreshes its MCP connection after completion.
+**Reconnect** prompt. Tell the user to click the **new** prompt from this check
+and then approve access in the original Nora3D document page. Do not click a
+Reconnect card left from an earlier task or gateway restart. Do not add a
+separate chat approval question. Do not run `connect-codex.ps1`, attempt
+sandbox-external execution, edit settings, delete credentials, reinstall, or
+invent a host tool as the normal recovery path. The host starts OAuth itself
+and refreshes its MCP connection after completion.
 
-The request contains a short-lived document selector. The server validates the
-original browser account, document and session and shows consent there. If the
-system browser also opens a connection page, leave the model page open; approval
-belongs in the original document, without another account login. Only the user
-may approve consent. The selector is not an access token or a modeling permission.
+The request contains a document selector. Verification of the page code ends
+after five minutes. The same selector remains a valid OAuth target for 30
+minutes while that page session stays open. If the page shows the check as
+expired, press **Retry check** there; a pending consent for this session still
+appears. The server validates the original browser account, document and
+session and shows consent there. If the system browser also opens a connection
+page, leave the model page open; approval belongs in the original document,
+without another account login. Only the user may approve consent. The selector
+is not an access token or a modeling permission.
 
 First-time installation with no open document still uses the host's normal OAuth
 consent. Installation does not replace required user consent. A diagnostic-only
@@ -32,7 +38,8 @@ request permits inspection, not approval or account changes.
 ## Verify and continue
 
 After host OAuth completion, read fresh MCP account/workspace state and verify
-the intended page again. Refresh an expired page connection request once if needed.
+the intended page again. If the page check expired, press **Retry check** once
+on that same page and use its current code.
 Read `nora_get_context` for that verified workspace and resume the user's original
 modeling task. Callback success alone does not prove refreshed MCP identity.
 

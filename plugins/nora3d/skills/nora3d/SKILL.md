@@ -44,22 +44,28 @@ account to resolve a mismatch. Keep their chosen browser account and document.
    A same-account current-context read also verifies the shared document.
 4. For a confirmed account mismatch, `nora_verify_connection` returns the native
    OAuth challenge. Read [connection recovery](references/connection-recovery.md).
-   Briefly identify the current document account and tell the user to use Codex's
-   **Reconnect** prompt, then approve in the original model page. Do not ask an
-   extra chat approval question. The host initiates OAuth and reloads MCP; do not
-   run a shell helper, change settings or ask the user to log into the old account.
-   Keep the document visible. Never approve consent on the user's behalf.
+   Briefly identify the current document account and tell the user to click the
+   **new** Codex **Reconnect** prompt from this check, then approve in the original
+   model page. Do not use a Reconnect card from an earlier task or gateway restart.
+   The document selector stays valid for 30 minutes while that page stays open.
+   If the page shows the check as expired, press **Retry check** there; pending
+   consent still appears. Do not ask an extra chat approval question. The host
+   initiates OAuth and reloads MCP; do not run a shell helper, change settings or
+   ask the user to log into the old account. Keep the document visible. Never
+   approve consent on the user's behalf.
 5. Keep the original modeling request and document. After OAuth completes, call
-   the tools afresh and reverify that document. Callback success alone is not proof
-   the current MCP connection picked up the account. Resume automatically on a
-   match. Start only one login attempt per connection problem; cancellation,
-   refusal, timeout, or persistent mismatch ends that attempt without a retry loop.
+   the tools afresh and reverify that document with the page's current connection
+   request. Callback success alone is not proof the current MCP connection picked
+   up the account. Resume automatically on a match. Start only one login attempt
+   per connection problem; cancellation, refusal, timeout, or persistent mismatch
+   ends that attempt without a retry loop.
 
 When accounts match but the document is missing, inspect that page's sharing and
 liveness; use its supported connect action and check at most three times over
 30 seconds. Never disconnect a working page, refresh a draft, choose an unrelated
 workspace, or switch OAuth for a same-account document change. Refresh an expired
-connection request once on the same page. If the verification tool is absent,
+connection request once on the same page (**Retry check**); a pending document
+consent from this session remains. If the verification tool is absent,
 use fresh account/document checks and report a host discovery limitation precisely;
 never invent a settings control or repeatedly request reinstall/new tasks.
 If the native prompt is unavailable or the host retains the old identity after

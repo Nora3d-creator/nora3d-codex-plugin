@@ -11,7 +11,7 @@ The plugin follows your conversation language.
    and empty Sparse paths. Your GitHub account needs access to this private repository.
 2. Install **Nora3D Online Beta** from **Nora3D Beta** and complete the account
    authorization opened by Codex. Sign in to the Nora3D account you intend to use.
-3. Confirm version **0.2.0-beta.19** and start a new task using the plugin.
+3. Confirm version **0.2.0-beta.20** and start a new task using the plugin.
 
 GitHub access downloads the private package; Nora3D authorization connects your CAD
 account. They are separate. Public availability has not been enabled.
@@ -32,10 +32,13 @@ document where the current host can identify and control it. It avoids opening a
 second browser login blindly. Keep the modeling page open.
 
 If your intended page and plugin use different accounts, Codex shows a native
-**Reconnect** prompt after checking the document. Click it, then approve in the
-original modeling page. That page's account is the authorization target. Codex
-refreshes its connection, and the assistant verifies the account and document
-before continuing. No PowerShell command or extra chat approval is required.
+**Reconnect** prompt after checking the document. Click the new prompt from this
+check, then approve in the original modeling page. Keep that page open. The
+Reconnect target stays valid for 30 minutes; if the page shows the check as
+expired, press **Retry check** there. That page's account is the authorization
+target. Codex refreshes its connection, and the assistant verifies the account
+and document before continuing. No PowerShell command or extra chat approval is
+required. Do not reuse a Reconnect card from an earlier task.
 
 This release requires the matching native document-authorization service and
 document-consent website. Hosts must support native MCP OAuth error prompts.

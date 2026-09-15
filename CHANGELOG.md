@@ -1,3 +1,12 @@
+# 0.2.0-beta.20
+
+- Keep the native Reconnect document target valid for 30 minutes while the
+  intended page stays open.
+- If the page check expires, press Retry check; pending consent still appears.
+- Use only the new Reconnect prompt from the current connection check.
+- Requires the matching native authorization service with a 30-minute target
+  window. Affected-computer acceptance remains separate.
+
 # 0.2.0-beta.19
 
 - Recover account mismatches through the native Codex Reconnect prompt.
