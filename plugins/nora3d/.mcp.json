@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "nora3d": {
+      "type": "http",
+      "url": "https://mcp.nora3d.ai/mcp"
+    }
+  }
+}

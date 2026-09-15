@@ -1,0 +1,20 @@
+{
+  "name": "nora3d-production",
+  "interface": {
+    "displayName": "Nora3D Beta"
+  },
+  "plugins": [
+    {
+      "name": "nora3d",
+      "source": {
+        "source": "local",
+        "path": "./plugins/nora3d"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

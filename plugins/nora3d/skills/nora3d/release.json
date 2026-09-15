@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "version": "0.2.0-beta.16",
+  "channel": "test",
+  "production_verified": false,
+  "files": {
+    "SKILL.md": "cc3a791e725226b662720ccc07d73a336987636daea2d0a26c83c7e500c20fc6",
+    "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
+    "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
+    "references/drawing-review.md": "a8fdc69a6b84baf03b9dfe990f8e91eb1b2b475d8074a756716e580437541bd9",
+    "references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
+    "references/folding.md": "81fc8467b1c7213c979d69f1b29b6ee98fc326f648addbeaecab6a48284817bf",
+    "references/geometry-check.md": "8276d953bfaa27d502e3e97adf22a17ba79a60514ca96ae9c7b1cc2435cc7d6e",
+    "references/modeling-playbook.md": "7c8f2073bc215eaa26bf774bbc474489214f6e75e76dd61e6880cf90e9ffa17f",
+    "references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
+    "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
+    "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
+    "scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
+    "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed"
+  },
+  "bundle_sha256": "5207a03baccdf6678bf0a0fa85091513013913735041b41d2d88d9e945078888"
+}

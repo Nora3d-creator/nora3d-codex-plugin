@@ -1,0 +1,34 @@
+{
+  "name": "nora3d",
+  "version": "0.2.0-beta.16",
+  "description": "Create, inspect, and edit CAD models in Nora3D with Codex.",
+  "author": {
+    "name": "Nora3D",
+    "email": "nora3d.ai@gmail.com",
+    "url": "https://nora3d.ai"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Nora3D Online Beta",
+    "shortDescription": "Online CAD modeling · https://app.nora3d.ai",
+    "longDescription": "Create, inspect, and edit CAD models with Codex. Available to every registered Nora3D account. Install, connect your account, and start modeling.",
+    "developerName": "Nora3D",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Open Nora3D (https://app.nora3d.ai/?nora_host=codex), connect my part document, and read the current model.",
+      "Create an 80 x 50 x 6 mm plate with a 10 mm diameter through-hole at the center.",
+      "Check the dimensions and save status of the current part."
+    ],
+    "websiteURL": "https://app.nora3d.ai",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "brandColor": "#6554DE"
+  },
+  "mcpServers": "./.mcp.json",
+  "repository": "https://github.com/Nora3d-creator/nora3d-codex-plugin",
+  "homepage": "https://github.com/Nora3d-creator/nora3d-codex-plugin#readme"
+}
