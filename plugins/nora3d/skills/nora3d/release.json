@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.21",
+  "version": "0.2.0-beta.22",
   "channel": "test",
   "production_verified": false,
   "files": {
-    "SKILL.md": "9d70013314317d3903ade35cac03840b616d98b0dba4a3e7e65d34eb694d8d16",
+    "SKILL.md": "f9f5d5592f53e9a3293d40df69fe24937aa154830d9478f4a636f924e379834f",
     "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
-    "references/connection-recovery.md": "c0bdff2a338162553a67bf982766cbe808ca1bb1e9844e93b360f6e2dd2603ef",
+    "references/connection-recovery.md": "7ab32686b772968341c4a1370a0cbcdcb86c1278a30a447692f8f8a6b4af49ec",
     "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
     "references/drawing-review.md": "a8fdc69a6b84baf03b9dfe990f8e91eb1b2b475d8074a756716e580437541bd9",
     "references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
@@ -20,5 +20,5 @@
     "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed"
   },
-  "bundle_sha256": "9b9eaf007aff7eeb2b8a419598fb5b20a2fe5bd9a46d8608c2ac59543484184e"
+  "bundle_sha256": "71ff13a46c7bc81d0226fd86cbda9d18b88a3201e2ed324dad0f6b67c9b1095d"
 }

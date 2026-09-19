@@ -1,7 +1,7 @@
 # Connection recovery
 
 The normal path has no recovery step. The user signs in to Nora3D, opens the
-model and presses **Codex** under the canvas; the page carries a hidden
+model and presses **MCP** under the canvas; the page carries a hidden
 connection code; you call `nora_verify_connection` with it and the gateway binds
 this plugin to that page's account and document for the life of that page
 session (`delegated: true`). The plugin's own account is unchanged and never
@@ -11,13 +11,21 @@ matters to the user. Do not mention accounts, Reconnect, consent or settings.
 
 - **Code expired** (`connection_check_expired`): the page replaces its code by
   itself. Re-read `[data-nora-connection-code]` once and verify again.
-- **No code on the page**: the page is not connected. Ask the user to press
-  **Codex** on that page once, then read the control again.
+- **No code on the page**: inspect whether connection is loading. If disconnected
+  and the user requested connecting/modeling, click MCP in the same tab once,
+  then read its state. No copied code or new link is required.
 - **Page reloaded or reopened**: it is a new page session with a new code and
   a new workspace; the old workspace disappears from the list. Verify the new
   code; nothing else changes.
-- **Workspace already listed**: a connected workspace whose project and
-  document match the page needs no verification. Read `nora_get_context`.
+- **Workspace already bound**: reuse the previously verified workspace and epoch
+  only for the same current tab. On an initial bind or ambiguous same-document
+  sessions, verify the code from the exact tab first. Then read `nora_get_context`
+  with expected document/session guards where supported.
+- **Browser wrapper timeout**: retain the exact browser/tab IDs. Use the host's
+  documented alternate DOM API once, with separate handle and snapshot calls
+  and a 60-second host-call timeout. Persistent failure is a host transport
+  blocker, not a reason to open a connection link in another profile. Do not
+  ask the user to refresh, send screenshots of hidden codes, or repeat MCP clicks.
 - **Read-only document**: writes fail with `read_only`; the page's account has
   no edit right on this document. Report that; do not ask for another account.
 

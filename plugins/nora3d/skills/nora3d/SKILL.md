@@ -15,13 +15,13 @@ is established. Read the modeling playbook only for actual modeling work.
 ## Connect and continue
 
 Every registered Nora3D account is eligible. The installed marketplace requests
-OAuth once, on installation; that grant is reused forever. The user connects a
-document by signing in to Nora3D, opening the model, and pressing the **Codex**
+OAuth on installation; reuse it while valid. The user connects a
+document by signing in to Nora3D, opening the model, and pressing the **MCP**
 button under the canvas. That click is the authorization: the gateway binds this
 plugin to that page's signed-in account and document when you present the page's
-connection code. Nothing else is required. The user must never see a Reconnect
-prompt, consent dialog, account comparison, connection code, settings page,
-terminal command, or a request to say "go on". Complete the modeling task.
+connection code. Handle this handoff in the original tab without asking the user
+to copy a code, open a link, switch accounts or repeatedly say "go on". A host
+permission prompt, if actually required, must still be respected.
 
 The plugin's stored account may differ from the account signed in on the page.
 That is normal and silent: `nora_list_workspaces` lists such documents with
@@ -34,33 +34,50 @@ unless the user asks. Keep their chosen browser account and document.
    is `https://mcp.nora3d.ai/mcp`. Read the deployment and the fresh workspace
    state, including delegated documents. An empty list proves nothing about the
    website login; it only means no page has connected yet.
-2. Honor the user's intended document and browser. Otherwise inspect current-host
-   browser tabs and reuse the open Nora3D page. Do not select a document on another
+2. Honor the user's intended document and browser. Inspect current-host
+   browser tabs and reuse the open Nora3D page associated with this conversation.
+   Where the host exposes `metadata.codexSessionId`, use it to select this task's
+   browser, then retain the exact browser ID and tab ID. This host association is
+   routing evidence, not an authentication credential. Do not select a document on another
    computer because it is the only/newest online workspace. If no suitable local
    page exists, open `https://app.nora3d.ai/?nora_host=codex` in the available
-   browser and let the user sign in and press **Codex** on the model. Preserve
+   browser and let the user sign in. Preserve
    document query parameters, keep the page open, protect drafts, and never claim
    it opened without evidence.
-3. Read the page's project/document identity from its URL or title. If a
-   connected workspace in the list matches that project and document, read
-   `nora_get_context` for it and start working. Otherwise read the page's Codex
+3. Read the page's project/document identity from its URL. On the initial bind,
+   read that exact tab's MCP
    connection control (element `[data-nora-connection-code]`, screen-reader text
    starting "Nora3D connection code for this document"; it is not visible on
    screen) with browser tools and call `nora_verify_connection` with the code
-   automatically. Do not ask the user to copy it. A `verified` result names the
-   exact workspace; read `nora_get_context` before editing. If verification says
+   automatically. When supported by the tool schema, pass `expected_project_id`
+   and `expected_document_id` from that URL. A `verified` result names the exact
+   workspace and session epoch; compare the returned project/document, then read
+   `nora_get_context` with the same guards and `expected_session_epoch` before
+   editing. A mismatch ends the attempt. Reuse a verified workspace only while
+   this tab and session remain current. Multiple tabs can show the same document;
+   a URL match or the only online workspace does not distinguish them.
+   Do not ask the user to copy the code. If verification says
    the code expired, re-read the control once: the page replaces its code itself.
-   If no code is present the page is not connected; ask the user to press
-   **Codex** on that page once, then repeat this step.
+   If no code is present, inspect the button and status: connection may still be
+   loading. When connecting/modeling is authorized and the page is disconnected,
+   click **MCP** in that same tab once with the supported browser tool and read
+   the fresh code. Do not click an explicit Disconnect action.
 4. `account_mismatch` only comes from a service with page delegation disabled;
    then, and only then, read [connection recovery](references/connection-recovery.md).
-5. Keep the original modeling request and document. Start at most one connection
-   attempt per problem; a persistent failure ends the attempt with the exact tool
-   error, not a retry loop, reinstall, settings or login instructions.
+5. If the accessibility wrapper times out, retain the selected browser. Read its
+   documented alternate DOM API once. On hosts exposing it, obtain the existing
+   handle with `browser.tabs.get(tabId)`, then read `tab.playwright.domSnapshot()`
+   in a separate call. Allow up to 60 seconds for each host call; a forced
+   20-second tool timeout can reset the browser runtime. Use only APIs actually
+   advertised by that host. This path performs no navigation. Persistent failure
+   is a host transport blocker. Never fall back to `nora_prepare_connection`, a
+   new tab, external browser, or account change merely because a read timed out.
+   Link preparation is reserved for a user-requested link. A queued open request
+   is not evidence that a page opened. Keep the original modeling request.
 
 When the page is connected but the document is missing from the list, inspect
 that page's sharing and liveness; use its supported connect action and check at
-most three times over 30 seconds. Never disconnect a working page, refresh a
+most three times. Never disconnect a working page, refresh a
 draft, or choose an unrelated workspace. If the verification tool is absent,
 use fresh account/document checks and report a host discovery limitation precisely;
 never invent a settings control or repeatedly request reinstall/new tasks.

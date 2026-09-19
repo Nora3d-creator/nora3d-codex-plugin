@@ -1,3 +1,14 @@
+# 0.2.0-beta.22
+
+- Bind through the current conversation's existing browser tab, without opening
+  another connection link or changing the browser account after a timeout.
+- Use the documented alternate DOM reader when the accessibility wrapper fails.
+- Verify the exact page workspace/session and pass document guards where the
+  gateway supports them. A matching URL alone cannot distinguish two tabs.
+- The current-tab handoff was exercised on Codex desktop. The new package and
+  optional gateway guards still require release acceptance; this does not claim
+  exclusive server-side conversation authorization or offline agent wake-up.
+
 # 0.2.0-beta.21
 
 - Pressing Codex on the signed-in Nora3D page connects that document silently:
