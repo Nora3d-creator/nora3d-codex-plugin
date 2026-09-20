@@ -1,71 +1,39 @@
 # Nora3D for Codex
 
-Create, inspect, and edit CAD models in [Nora3D](https://app.nora3d.ai).
-Every registered Nora3D account is eligible; there is no invitation review.
-The plugin follows your conversation language.
+**Your next part. Built with Codex.**
 
-## Install the private test
+Create CAD from a prompt or drawing, with your Nora3D document right beside the conversation. Describe it. Build it. Keep editing.
 
-1. In Codex, add a plugin marketplace with Source
-   `https://github.com/Nora3d-creator/nora3d-codex-plugin`, Git ref `main`,
-   and empty Sparse paths. Your GitHub account needs access to this private repository.
-2. Install **Nora3D Online Beta** from **Nora3D Beta** and complete the account
-   authorization opened by Codex. Sign in to the Nora3D account you intend to use.
-3. Confirm version **0.2.0-beta.21** and start a new task using the plugin.
+[![Watch the Nora3D modeling demo](assets/iphone-duo-poster.jpg)](assets/iphone-duo-demo.mp4)
 
-GitHub access downloads the private package; Nora3D authorization connects your CAD
-account. They are separate. Public availability has not been enabled.
+[Watch the demo · 39 seconds](assets/iphone-duo-demo.mp4) — from a prompt to “fold it.” Edited recording; wait times removed and some steps sped up.
 
-For the ZIP alternative, extract it fully, use the folder containing `.agents` and
-`plugins` as Source, and leave Git ref and Sparse paths empty. Local sources do not
-support Git upgrades. Keep only one Online Beta source installed; save your document
-before migrating an older local installation to this Git source.
+## Install
 
-## Start modeling
+You need the **Codex desktop app** and a **Nora3D account**. No invitation or local CAD server required.
 
-Mention **@Nora3D Online Beta** and describe the model, for example:
+1. In Codex, go to **Plugins → Add → Add a marketplace**.
+2. Enter the following, leaving **Sparse paths** empty:
 
-> Create an 80 x 50 x 6 mm plate with a centered 10 mm through-hole.
+   | Field | Value |
+   | --- | --- |
+   | Source | `https://github.com/Nora3d-creator/nora3d-codex-plugin` |
+   | Git ref | `main` |
 
-Sign in to Nora3D with the account you want to work as, open the model, and press
-the **Codex** button under the canvas. That click connects this document to the
-plugin: the assistant reads the page's hidden connection code, verifies it, and
-starts modeling. No Reconnect prompt, consent dialog, account comparison, code
-copying, settings page or command line is involved, even when the plugin was
-originally authorized with a different Nora3D account. Access is limited to that
-document while its page stays open; reloading the page and pressing **Codex**
-again reconnects it. Keep the modeling page open.
+3. Install **Nora3D Online Beta** from **Nora3D Beta** and complete the Nora3D authorization. Keep Codex open until authentication finishes, then start a new task.
 
-This release requires the matching gateway (page delegation enabled) and website
-release. First-time installation still uses the host's one-time account consent.
+During private testing, your GitHub account needs access to this repository.
 
-## Update
+## Build your first part
 
-For a Git installation, use the marketplace **Upgrade** action, check the installed
-plugin version, and install the updated plugin if it still shows an older version.
-Start a new task so its skill instructions are refreshed. Automatic background updates
-are not guaranteed. Remote MCP service updates and installed plugin updates are separate.
+Mention **@Nora3D Online Beta** and ask it to open [Nora3D](https://app.nora3d.ai) in the task’s built-in browser. Sign in, then open or create a part document. If disconnected, click **MCP** below the canvas; the assistant verifies that document before editing.
 
-## Connection checks
+> In the current document, create an 80 × 50 × 6 mm plate with a centered 10 mm through-hole. Check the dimensions and save it.
 
-- Pressing **Codex** on the page is the authorization; the assistant verifies the
-  page's hidden connection code with `nora_verify_connection` or reuses the listed
-  workspace that matches the page's document.
-- A document connected from a page signed in as another account appears as
-  `delegated` in the workspace list; the plugin's own authorization is unchanged.
-- A missing workspace only means that page has not been connected yet.
-- An expired code is replaced by the page itself; a persistent failure is reported
-  once with the exact tool error, never as an endless retry loop.
+Keep the document tab open and continue with follow-up requests. Replies follow your language.
 
-## Package contents and validation
+## Updates
 
-This repository includes the manifest, English guides, geometry helpers, Windows
-connection helper, brand icon and marketplace catalog. The service endpoint is
-`https://mcp.nora3d.ai/mcp`. Backend code, user documents and credentials are excluded.
+Use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Current release: **0.2.0-beta.22**.
 
-Checksums are in `release.json`. Automated helper tests and package validation are
-separate from the new-computer acceptance steps in [TEST-CHECKLIST.md](TEST-CHECKLIST.md).
-This release does not claim that the new-computer connect/model/save workflow has
-already passed. First-time account consent is still required.
-
-Support: [nora3d.ai@gmail.com](mailto:nora3d.ai@gmail.com).
+[Website](https://nora3d.ai/codex) · [Changelog](CHANGELOG.md) · [Support](mailto:nora3d.ai@gmail.com)
