@@ -4,9 +4,9 @@
 
 Create CAD from a prompt or drawing, with your Nora3D document right beside the conversation. Describe it. Build it. Keep editing.
 
-[![Watch the Nora3D modeling demo](assets/iphone-duo-poster.jpg)](assets/iphone-duo-demo.mp4)
+https://github.com/user-attachments/assets/662a4fe1-233d-455e-a2f2-801eb7dc509e
 
-[Watch the demo · 39 seconds](assets/iphone-duo-demo.mp4) — from a prompt to “fold it.” Edited recording; wait times removed and some steps sped up.
+**39-second demo — from a prompt to “fold it.”** Edited recording; wait times removed and some steps sped up.
 
 ## Install
 
