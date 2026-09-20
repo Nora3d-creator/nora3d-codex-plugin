@@ -8,6 +8,10 @@ https://github.com/user-attachments/assets/662a4fe1-233d-455e-a2f2-801eb7dc509e
 
 **39-second demo — from a prompt to “fold it.”** Edited recording; wait times removed and some steps sped up.
 
+https://github.com/user-attachments/assets/c744116a-a96f-41f2-8805-9bb3e53cfd1d
+
+**25-second demo — from a drawing to a CAD model.** Edited recording; modeling steps sped up.
+
 ## Install
 
 You need the **Codex desktop app** and a **Nora3D account**. No invitation or local CAD server required.
