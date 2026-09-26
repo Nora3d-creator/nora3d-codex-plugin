@@ -1,3 +1,22 @@
+# 0.2.0-beta.25 — unreleased account and panel candidate
+
+- Distinguish an unlisted target document from explicitly offline sessions.
+- Collapse the Web Assistant through its existing toolbar in plugin-owned tabs;
+  verify the UI result and preserve the mounted bridge and Web task state.
+- Detect no-effect browser interactions and keep automation failure separate
+  from page failure and account identity. Do not infer access from a URL.
+- Add a host-owned OAuth helper that preserves the original document and uses
+  an isolated consent tab in the same in-app browser. Keep credentials with the
+  host and require human consent plus fresh MCP identity/document verification.
+- Bound authorization and presentation recovery with cancellation, stale-result
+  checks and cleanup. Never substitute a successful click or OAuth callback for
+  the actual resulting UI or active MCP account.
+- Real host discovery, human consent and OAuth callback completed successfully.
+  Live panel collapse and subsequent guarded document reads also passed without
+  changing the model revision. The authorization test used the same account;
+  switching between distinct accounts and refreshing an existing desktop
+  transport remain acceptance items. Focused regression tests pass.
+
 # 0.2.0-beta.24
 
 - Use the new Web assistant's automatically registered, already accessible

@@ -1,12 +1,14 @@
-# Nora3D 0.2.0-beta.24: desktop acceptance
+# Nora3D 0.2.0-beta.25: desktop acceptance
 
-Confirm beta.24 in plugin Information and start a new task after installing the
+Confirm beta.25 in plugin Information and start a new task after installing the
 package. Keep only one Online Beta plugin enabled. Use disposable test documents.
-The new Web assistant page has no MCP button; do not enable a legacy page mode.
+The new Web assistant page has no MCP button; keep the modeling tab in its normal
+mode. Only a separate temporary consent tab may use the existing compatibility
+route described in the account-authorization guide.
 
 1. **First connection:** complete the host's normal Nora3D installation
    authorization. Sign in on the intended Nora3D page and open a part document
-   with its existing Assistant panel. Confirm the plugin reads the exact
+   with its existing Assistant component. Verify the plugin collapses its panel without destroying the bridge, and that the document stays connected. Confirm the plugin reads the exact
    project/document and live session through guarded context, without a button,
    hidden code lookup, copied request or account-switch loop.
 2. **Historical sessions:** leave offline records for this document. Confirm they
@@ -42,3 +44,24 @@ The new Web assistant page has no MCP button; do not enable a legacy page mode.
 Record version, step, expected/actual result and non-secret error codes. Test Git
 marketplace Upgrade only after publication; a local ZIP cannot prove Git updates.
 These scenarios are acceptance requirements, not claims that every case passed.
+
+11. **Unlisted target:** unrelated offline records must return document_not_listed, not a claim that the target is offline. Confirm website and plugin identities before requesting reauthorization.
+12. **UI no-effect:** if a click returns but the panel stays expanded, do not report hidden. Use one supported alternate action; stop on persistent host failure. Verify both panel-hidden state and a fresh guarded context after recovery.
+13. **Account recovery:** when a confirmed different account lacks delegated
+    document access, run the new host helper's read-only Check, then begin one
+    authorized Login session. Keep the provider consent page in the original
+    in-app browser profile and preserve the original document tab. The user
+    approves the intended account. Close only the helper-created auth tab after
+    the callback; verify the actual MCP caller and original guarded document.
+    If the active transport still uses the old grant, report that distinct state
+    and do not repeat OAuth. Human consent and callback passed a same-account
+    live test; distinct-account switching and stale-transport refresh still need
+    acceptance.
+14. **Consent failure:** unsupported host, rejected execution permission, missing
+    consent UI, cancellation and timeout must stop the owned process and its
+    listeners. No logout, credential inspection, configuration alias or late
+    callback may redirect modeling. No legacy assistant task may be submitted.
+15. **Panel protection:** missing/unknown busy, recovery or overlay evidence must
+    produce no click. Confirm render mode, saved panel preference after reopening,
+    exact browser/tab/URL changes and one-alternate limit. A screenshot or full
+    accessibility state must be checked when a compact snapshot misses a notice.

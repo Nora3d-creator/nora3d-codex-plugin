@@ -17,15 +17,21 @@ is established. Read the modeling playbook only for actual modeling work.
 Every registered Nora3D account is eligible. Reuse the plugin's valid installation
 OAuth. The new Web assistant automatically connects its document and has no MCP
 button. Read [buttonless connection](references/buttonless-connection.md) before
-connecting; this desktop guide supersedes older button-based connection sections
-in the shared playbook and older tool descriptions for already accessible sessions.
+connecting; the desktop connection and account-authorization guides supersede
+older button-based connection and recovery sections in the shared playbook and
+tool descriptions. Do not combine the new flow with older settings/CLI loops.
 
 1. Discover Nora3D tools. Reuse the intended page in the current conversation's
    browser, retaining exact browser/tab IDs. When available, use host
    `metadata.codexSessionId` to identify this task's browser. Read the real URL's
    project/document; never select a document simply because it is newest/online.
-   If there is no suitable page, open `https://app.nora3d.ai/?nora_host=codex` in
+   If there is no suitable page, open `https://app.nora3d.ai/` in
    the intended browser and let the user sign in. Preserve the page and drafts.
+   In a plugin-owned in-app document tab, follow [assistant panel](references/assistant-panel.md)
+   to collapse the expanded Web Assistant through its visible toolbar. Verify
+   both the button's collapsed state and the actual panel hidden. Respect busy,
+   recovery, render and overlay guards. A failed optional collapse must not become
+   an account-switch loop. Keep the Web assistant and its bridge mounted.
 2. Read `nora_list_workspaces` from `https://mcp.nora3d.ai/mcp`. For the new page,
    match its exact project/document to one accessible live session, then call
    `nora_get_context` with all project/document/session guards. Check the returned
@@ -35,8 +41,17 @@ in the shared playbook and older tool descriptions for already accessible sessio
 3. Keep a verified binding only while this tab/document/session remains current.
    Multiple matching live sessions require disambiguation, not a timestamp guess.
    A valid delegated workspace remains usable without account-switch prompts.
+   Report an unlisted target as not listed, not offline: the top-level connection
+   status describes the caller's listed workspaces, not an absent target document.
+   Compare the caller account with an account visibly shown by the website only
+   when needed; never infer the website account from a URL or another task.
    An unavailable document is not proof of an account mismatch. Never create
    access, change token subjects or force the page to use an old plugin account.
+   For confirmed missing/different authorization, follow
+   [account authorization](references/account-authorization.md). Preserve the model
+   tab and use the same browser profile for the temporary consent page. The user
+   completes sign-in/consent; a callback alone does not prove the active MCP
+   transport changed. Recheck the caller and exact document before resuming.
 4. Respect Web assistant leases and human drafts. On `assistant_busy`, wait for
    current work to finish; never stop or reconfigure the Web assistant. After
    reconnect, read fresh context before resuming the original modeling request.

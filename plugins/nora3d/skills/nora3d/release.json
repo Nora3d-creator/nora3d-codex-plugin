@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.24",
+  "version": "0.2.0-beta.25",
   "channel": "test",
   "production_verified": false,
   "files": {
+    "references/account-authorization.md": "70273839bccc3f589478116ef6e5c3d7ff93b8650d5f6f29fc8d844cedaaddfe",
+    "references/assistant-panel.md": "4859b0605175dab729ea6f26296c14c881bc63d5515af7ea4e8707798971a607",
     "references/assistant-workflow.md": "7d99ee5666db86619fe319499e289153d5d4e4ecb1378948246b71644e84e7d7",
-    "references/buttonless-connection.md": "c2f7c910b2dfd6f673d26787eb1b86edecc3a91e5d46f23a3ad7f419a65d4302",
+    "references/buttonless-connection.md": "ecccade86fcf3592c195835896d2deb3f275ff5543bd52f4ed8de81e1931386b",
     "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
     "references/connection-recovery.md": "7ab32686b772968341c4a1370a0cbcdcb86c1278a30a447692f8f8a6b4af49ec",
     "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
@@ -18,11 +20,13 @@
     "references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
     "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
+    "scripts/assistant-panel.cjs": "c740207df3039091d1992f2dda255748eb6f881e9bfdd523b0bbfee323beb4b2",
+    "scripts/authorize-account.cjs": "0a8e0aff4eacdc524bafe097375c097cc5ef2fd8959c3a7ca97f9b6bde8f6053",
     "scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
     "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed",
-    "scripts/select-workspace.cjs": "601bb98f06f348cbba3ebab1d2331cff514eae0273dcdebfa52819c0d339932e",
-    "SKILL.md": "c1a39e0720b93b69e2974225c5ffda9044cb5a70c55dfcc6afb48a9c5afe5cb2"
+    "scripts/select-workspace.cjs": "4633eb5b3974b2be46cda01eb49a1947e2f04180f99946ad933c646fba76154b",
+    "SKILL.md": "7516939458fc547e57b36ca73ad06c212ca9f5c12502621915b197899f3b05a1"
   },
-  "bundle_sha256": "7fe3e709e93889e5195abcba02e112ecd2388a1cb8e3956a4e354ff69e0e2c15"
+  "bundle_sha256": "942f0904993b4a017c5479b3cddae885326d32afa2f4ec2646db667072938fd3"
 }

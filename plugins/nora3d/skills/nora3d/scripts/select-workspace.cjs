@@ -8,7 +8,8 @@ function selectWorkspace({tab, listing, binding, context} = {}) {
   if (listing?.deployment?.nora_url !== 'https://app.nora3d.ai' || listing?.deployment?.mcp_url !== 'https://mcp.nora3d.ai/mcp') return {status:'deployment_mismatch'};
   if (!Array.isArray(listing.workspaces)) return {status:'invalid_listing'};
   const [project, document] = ids.slice(1);
-  const candidates = listing.workspaces.filter(w => w.project_id === project && w.document_id === document && w.connected === true && w.workspace_id && w.session_epoch);
+  const matching = listing.workspaces.filter(w => w.project_id === project && w.document_id === document);
+  const candidates = matching.filter(w => w.connected === true && w.workspace_id && w.session_epoch);
   let workspace;
   if (binding) {
     if (binding.browser_id !== tab.browser_id || binding.tab_id !== tab.tab_id || binding.project_id !== project || binding.document_id !== document) return {status:'tab_changed'};
@@ -16,7 +17,7 @@ function selectWorkspace({tab, listing, binding, context} = {}) {
     if (bound.length !== 1) return {status:'session_changed'};
     workspace = bound[0];
   } else {
-    if (!candidates.length) return {status:'document_unavailable'};
+    if (!candidates.length) return {status:!matching.length ? 'document_not_listed' : matching.every(w => w.connected === false) ? 'document_offline' : 'connection_unknown'};
     if (candidates.length !== 1) return {status:'ambiguous_session',count:candidates.length};
     workspace = candidates[0];
   }

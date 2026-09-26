@@ -30,14 +30,16 @@ During private testing, your GitHub account needs access to this repository.
 
 ## Build your first part
 
-Mention **@Nora3D Online Beta** and ask it to open [Nora3D](https://app.nora3d.ai) in the task’s built-in browser. Sign in, then open or create a part document. Keep the existing **Assistant** panel open. The plugin finds the document’s available connection and checks it before editing; no MCP button is needed.
+Mention **@Nora3D Online Beta** and ask it to open [Nora3D](https://app.nora3d.ai) in the task’s built-in browser. Sign in, then open or create a part document. The plugin checks the document’s connection before editing; no MCP button is needed. It requests the existing **Assistant** panel to collapse when safe and verifies the result, keeping the document bridge mounted.
 
 > In the current document, create an 80 × 50 × 6 mm plate with a centered 10 mm through-hole. Check the dimensions and save it.
 
 Keep the document tab open and continue with follow-up requests. Replies follow your language.
 
+If the plugin needs authorization for your current account, it prepares a temporary consent page in the same built-in browser. Review and approve access there; your original document stays open. The plugin verifies the active account and document again before continuing.
+
 ## Updates
 
-Use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Current package: **0.2.0-beta.24**. See the changelog for test status.
+Use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Test package: **0.2.0-beta.25**. See the changelog for verified behavior and remaining account-switch acceptance.
 
 [Website](https://nora3d.ai/codex) · [Changelog](CHANGELOG.md) · [Support](mailto:nora3d.ai@gmail.com)
