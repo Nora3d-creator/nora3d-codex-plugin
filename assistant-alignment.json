@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
   "version": "0.2.0-beta.24",
-  "channel": "test",
-  "production_verified": false,
-  "files": {
-    "references/assistant-workflow.md": "7d99ee5666db86619fe319499e289153d5d4e4ecb1378948246b71644e84e7d7",
-    "references/buttonless-connection.md": "c2f7c910b2dfd6f673d26787eb1b86edecc3a91e5d46f23a3ad7f419a65d4302",
+  "web_assistant_release": "20260925.1",
+  "reference_bundle": {
+    "version": "0.3.0-cas.1",
+    "knowledge_sha256": "0766d7a53b9c692e83d2455473fe2d1dd6b6c3f5c0e0e57f2f96facc21123767",
+    "bundle_sha256": "5dd4d2b47a645838ba32b2e300342629686ca220cd4ebacd84fc849aa28e2785"
+  },
+  "shared_files": {
     "references/catalog-api.md": "5f4893865e33b641d8ec36489c887b2bf612ed759e83dc01e0b4f24770542b64",
     "references/connection-recovery.md": "7ab32686b772968341c4a1370a0cbcdcb86c1278a30a447692f8f8a6b4af49ec",
     "references/direct-modeling.md": "06a2f23a9963b74cab9258282700a29546411d55455c5538311f816bb3ee1d59",
@@ -13,16 +15,18 @@
     "references/fast-modeling.md": "053d58ac58ec23c0b200a6f26cffd9128e8f20c8abdf2d972f6ceadb6e7bc68f",
     "references/folding.md": "81fc8467b1c7213c979d69f1b29b6ee98fc326f648addbeaecab6a48284817bf",
     "references/geometry-check.md": "8276d953bfaa27d502e3e97adf22a17ba79a60514ca96ae9c7b1cc2435cc7d6e",
-    "references/mesh-reconstruction.md": "5d91c8babc93bfea2ad75be6461ad4b8048095ab25940740733c6edb9ad249e1",
     "references/modeling-playbook.md": "fea405042eade6553e1911aca88429d83d1c08f83c93d4c594e06cbce14aeeef",
     "references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
     "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
     "scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
-    "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
-    "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed",
-    "scripts/select-workspace.cjs": "601bb98f06f348cbba3ebab1d2331cff514eae0273dcdebfa52819c0d339932e",
-    "SKILL.md": "c1a39e0720b93b69e2974225c5ffda9044cb5a70c55dfcc6afb48a9c5afe5cb2"
+    "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed"
   },
-  "bundle_sha256": "7fe3e709e93889e5195abcba02e112ecd2388a1cb8e3956a4e354ff69e0e2c15"
+  "desktop_extensions": [
+    "references/assistant-workflow.md",
+    "references/buttonless-connection.md",
+    "references/mesh-reconstruction.md",
+    "scripts/select-workspace.cjs"
+  ],
+  "scope": "Codex distribution only; Web runtime, shared capability source and Cursor are unchanged."
 }

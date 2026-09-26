@@ -1,3 +1,29 @@
+# 0.2.0-beta.24
+
+- Use the new Web assistant's automatically registered, already accessible
+  document connection. No MCP button or hidden connection-code lookup is required.
+- Match the current task tab's exact project/document, require a unique live
+  session or retained binding, then validate guarded fresh context before edits.
+- Preserve Web assistant leases, human drafts, account authorization and session
+  boundaries; do not switch the page to the legacy assistant or change Web code.
+- Add a deterministic, read-only workspace-selection helper and timeout guidance.
+- The live buttonless page and its guarded model context were read successfully.
+  Cross-account access without an existing grant is not silently created. Browser
+  host transport failures remain distinct. Full modeling acceptance is pending.
+
+# 0.2.0-beta.23
+
+- Align task completion, reference continuity and progress with the Nora3D Web
+  assistant release 20260925.1, using desktop-appropriate recovery.
+- Continue authorized image modeling through native checks and saved-state
+  verification; preserve analysis-only requests and necessary dimension questions.
+- Document capability-gated mesh analysis and reconstruction continuation.
+  Analysis results are not completed or saved native models.
+- Keep the 13 shared modeling references/helpers byte-identical to the selected
+  Web knowledge bundle. Preserve current-tab account/document delegation.
+- Codex-only test package. No Web, shared gateway or Cursor runtime changes.
+  Desktop installation, live modeling and save/reopen acceptance remain required.
+
 # 0.2.0-beta.22
 
 - Bind through the current conversation's existing browser tab, without opening
