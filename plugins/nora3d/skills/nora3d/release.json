@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.25",
+  "version": "0.2.0-beta.27",
   "channel": "test",
   "production_verified": false,
   "files": {
@@ -16,7 +16,10 @@
     "references/folding.md": "81fc8467b1c7213c979d69f1b29b6ee98fc326f648addbeaecab6a48284817bf",
     "references/geometry-check.md": "8276d953bfaa27d502e3e97adf22a17ba79a60514ca96ae9c7b1cc2435cc7d6e",
     "references/mesh-reconstruction.md": "5d91c8babc93bfea2ad75be6461ad4b8048095ab25940740733c6edb9ad249e1",
+    "references/modeling-experience.md": "2b46d0df696517884e48bac0eab3033ef69df67ed2a5a22a199bd7460f79de69",
+    "references/modeling-fast-path.md": "b56f66fe07744d2c134a4579cf6de1a5b4abc7865d59770628c3b0fe1b4d6408",
     "references/modeling-playbook.md": "fea405042eade6553e1911aca88429d83d1c08f83c93d4c594e06cbce14aeeef",
+    "references/modeling-recipes.md": "5ecd23c1696f7779336be90143d3a168cf58cbf3f7f2c659bb744e52a56d9a62",
     "references/nora-knowledge.md": "116bdcd38f4b8b9862bfb6971862bc54534891804fdbe4e58595d414d023d95c",
     "references/thread-and-loft.md": "28d59f35269e0b5ae44b0b48b22714067cb3101fccfda9331e86390caa34c9d0",
     "references/ui-guide.md": "4dd456c2d7712367d3653552c24f8c8d954ba4bea724e54911eac91db8fe10bc",
@@ -24,9 +27,13 @@
     "scripts/authorize-account.cjs": "0a8e0aff4eacdc524bafe097375c097cc5ef2fd8959c3a7ca97f9b6bde8f6053",
     "scripts/check-drawing-geometry.cjs": "b0e35b27598d7c4acc1a505625ffd85cb451092b17cb776047f3c83a04efded5",
     "scripts/connect-codex.ps1": "ce422c0402936e454377633155c7c093d7cc0384b718a2be93f23fd53072d129",
+    "scripts/modeling-evidence.cjs": "9b2ef5653eb67c3cdf11dfe74b37f051900d8cd34bce3617f3d7f313b8b08fa1",
+    "scripts/modeling-memory.cjs": "14a923614e0079687ec0c9a14aebe06143b35c919122b569c45b7865f95ab7a4",
+    "scripts/modeling-recipes.cjs": "ee4b0962703ba3bd076b6d16060599e8809cdd35a9999f64459330da17752db5",
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed",
     "scripts/select-workspace.cjs": "4633eb5b3974b2be46cda01eb49a1947e2f04180f99946ad933c646fba76154b",
-    "SKILL.md": "7516939458fc547e57b36ca73ad06c212ca9f5c12502621915b197899f3b05a1"
+    "scripts/verify-modeling-recipes.cjs": "b096dec520b6419f72e245b0223ccfd0424bc9b58210f0adb69e33a989507634",
+    "SKILL.md": "9a0f264a65fa234c80081b3b9c2f8109a0ae2a98a55b41b9b07cdb57d953e968"
   },
-  "bundle_sha256": "942f0904993b4a017c5479b3cddae885326d32afa2f4ec2646db667072938fd3"
+  "bundle_sha256": "5faa11b4c6b88c2cf3c941ee40d2dba862935928a337130dee106173f0283b97"
 }

@@ -1,6 +1,6 @@
-# Nora3D 0.2.0-beta.25: desktop acceptance
+# Nora3D 0.2.0-beta.26: desktop acceptance
 
-Confirm beta.25 in plugin Information and start a new task after installing the
+Confirm beta.26 in plugin Information and start a new task after installing the
 package. Keep only one Online Beta plugin enabled. Use disposable test documents.
 The new Web assistant page has no MCP button; keep the modeling tab in its normal
 mode. Only a separate temporary consent tab may use the existing compatibility
@@ -65,3 +65,40 @@ These scenarios are acceptance requirements, not claims that every case passed.
     produce no click. Confirm render mode, saved panel preference after reopening,
     exact browser/tab/URL changes and one-alternate limit. A screenshot or full
     accessibility state must be checked when a compact snapshot misses a notice.
+16. **Fast-path routing:** text-only basic shape, single-target color/parameter
+    and simple planar-hole tasks load the desktop fast path. A drawing or shape
+    correction still loads drawing-review before geometry; complex, thread,
+    motion and mesh cases load their required topic. A missing remembered guide
+    is reread; this is not permission to skip a rule.
+17. **Warm continuation:** with a verified current binding and usable current
+    receipt context, do not repeat browser inventory, all-workspace discovery,
+    authorization or full schema reads on each edit. Switch the tab/document or
+    change the catalog: the correct cached information must be invalidated.
+    Human edits, Web leases and unknown writes must still stop stale execution.
+18. **Batch and acceptance:** collect schemas, derive actual sketch coordinates,
+    batch deterministic groups, and stop at unknown profile/target/frame checks.
+    Verify native diameter, blind/through depth and commit saved/displayed state.
+    A successful final view step does not certify the preceding model.
+19. **Evidence records:** failed/cancelled batches may contain successful child
+    receipts; preserve both. A summary is never write authorization or a geometry
+    certificate. Record remains observed candidate even when feedback says good.
+    Unsupported response shapes require originals. Do not add a shell call per
+    CAD command solely to run the optional offline helper.
+20. **Speed comparison:** use independent test documents and the same model,
+    effort, input, initial geometry and acceptance rules as beta.25. Separate
+    cold/warm and simple/drawing cases. Record end-to-end time, planning rounds,
+    tool calls, input size, repairs, failures and saved/reopened correctness.
+    Offline file-size reduction and helper tests are not a measured speedup.
+21. **Bounded recipes:** compile actual live context/schema DTOs, including the
+    `millimeter` unit spelling and nonnumeric axis IDs among entities. Validate
+    offset/side-face sketch frames, missing/changed schemas, native topology
+    ownership, profile unknown, wrong directions and through material spans.
+    Do not fabricate schema metadata missing from the deployment.
+22. **Independent acceptance:** test native box, blind and through-hole geometry
+    with wrong diameter/depth, sealed bottom, extra topology, truncated source
+    and render-only evidence. Check persistence separately and re-inspect after
+    an authorized idle-document reload with a new session binding.
+23. **Task-local memory:** only explicitly supplied manifest-listed evidence may
+    enter the index. Deduplicate identical records, retain failures, exclude
+    stale versions/out-of-domain parameters and never return old CAD bindings
+    as execution inputs. A single observed run remains a candidate.

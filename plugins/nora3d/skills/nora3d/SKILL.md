@@ -10,14 +10,17 @@ description: Create and edit CAD models in Nora3D. Connect the intended account 
 Follow the user's language and explicit preferences. English instructions do not
 force English replies or change website language. Images and plugin mentions do
 not override the conversation language. Default to English only when no language
-is established. Read the modeling playbook only for actual modeling work.
+is established. Load modeling guidance by the task routes below, only when needed.
 
 ## Connect and continue
 
 Every registered Nora3D account is eligible. Reuse the plugin's valid installation
 OAuth. The new Web assistant automatically connects its document and has no MCP
-button. Read [buttonless connection](references/buttonless-connection.md) before
-connecting; the desktop connection and account-authorization guides supersede
+button. Read [buttonless connection](references/buttonless-connection.md) on first
+binding, reconnection, document/session change or an actual connection mismatch;
+reuse a verified current binding for follow-up work. Do not repeat browser
+inventory, workspace listing, panel collapse or authorization on every edit.
+The desktop connection and account-authorization guides supersede
 older button-based connection and recovery sections in the shared playbook and
 tool descriptions. Do not combine the new flow with older settings/CLI loops.
 
@@ -70,23 +73,51 @@ modeling request.
 
 ## Modeling and verification
 
-For any modeling task, first read [task completion and recovery](references/assistant-workflow.md).
+For modeling, read [task completion and recovery](references/assistant-workflow.md)
+once per loaded plugin version, retaining it for follow-up work in this task.
 Interpretation and planning are progress, not completion: continue authorized
 work through geometry checks and saved-state verification in the same turn.
 Preserve explicit analysis-only requests and necessary dimension questions.
 
-For mesh reverse engineering, read [mesh reconstruction](references/mesh-reconstruction.md).
-Mesh API v1 is a candidate capability. Discover the live catalog first; an
-installed guide does not upgrade the connected Web or gateway.
+For all modeling and geometry inspection, read the
+[desktop execution core and fast path](references/modeling-fast-path.md) once.
+Its core rules apply to every route. Explicit basic shapes, single-target
+color/parameter edits, simple planar holes and bounded native inspection can
+use this compact route directly. Its task routes replace unconditional
+loading of the shared playbook on this desktop host; they do not waive geometry,
+human-work, authorization or persistence checks. Read already loaded guides again
+only after a version change or when the retained content is unavailable.
 
-Before modeling or inspecting geometry, read the [modeling playbook](references/modeling-playbook.md).
-Preserve its drawing-review, draft-ownership, coordinate, batch, topology, thread,
-library, and recovery rules, including relevant linked references.
+For modeling from a drawing, or a new drawing/shape correction, read
+[drawing review](references/drawing-review.md) before geometric writes. For
+complex/multi-solid work, read [direct modeling](references/direct-modeling.md);
+for threads, helices, loft/sweep and variable-section parts read
+[threads and lofts](references/thread-and-loft.md); for mechanism motion read
+[folding](references/folding.md). Use the full
+[modeling playbook](references/modeling-playbook.md) for tasks outside these
+routes, unfamiliar topology, library insertion or an unresolved modeling failure.
+Load its linked topics only when their stated triggers apply. A drawing may be
+simple, but its explicit dimensions and projection checks still apply.
+
+For mesh reverse engineering, read [mesh reconstruction](references/mesh-reconstruction.md)
+and the playbook. Mesh API v1 is a candidate capability: discover live support.
+Jev choices and needs_codex are not completed native geometry or full acceptance.
+An installed guide does not upgrade the connected Web or gateway.
+
 Codex plans and executes through MCP/API. Native Agent delegation is off by default.
 Explain concrete API gaps before Computer Use fallback. Read current context,
 honor human edits and stable idempotency keys, and never replay an unknown write.
 Camera navigation is not a model edit. Validate actual geometry and saved/displayed
 revisions; a screenshot or approximate bounding box is not a dimensional check.
+
+Use [experience reuse](references/modeling-experience.md) when reusing an earlier
+plan or recording a completed attempt. Historical success is not current-model
+evidence; the optional local helper records candidates, never certified recipes.
+When the user requests experience accumulation, retain both successes and failures
+in the task's authorized local artifact folder using that candidate index. Reuse
+an explicitly selected existing index before replanning a supported method.
+Validate the current model each time; never update global instructions or promote
+a method automatically from one result. State where the index was saved.
 
 ## Public templates and management access
 

@@ -1,4 +1,37 @@
-# 0.2.0-beta.25 — unreleased account and panel candidate
+# 0.2.0-beta.27 — bounded recipes and task-local experience
+
+- Add optional pure local planners for explicit boxes, staged planar holes and
+  supported native extrusion-height edits, with live schema and context guards.
+- Match real host units, mixed entity IDs and native topological face references;
+  compute circles from the actual sketch matrix. Through cuts require proved
+  native material spans rather than bounding boxes or a guessed depth.
+- Add separate native geometry and persistence checkers, and a manifest-selected
+  candidate index that retains successes and failures without old CAD bindings.
+- Live box, side blind-hole and through-hole construction passed native geometry,
+  save acknowledgement and new-session reload checks in an independent document.
+  These are individual run results, not universal recipe certification or a
+  controlled end-to-end speed comparison. Extrusion edits remain limited by
+  available native parameters; missing parameters require another supported path.
+- Codex distribution only. Web, Gateway, AI and the 13 shared knowledge files are
+  unchanged. Full Jev native reconstruction is not implemented by this update.
+
+# 0.2.0-beta.26 — local modeling fast-path candidate
+
+- Route simple tasks through compact desktop guidance; load drawing, complex
+  topology, thread, motion and mesh topics when the task requires them. Reuse
+  loaded guidance for the same plugin version and task.
+- Reuse verified bindings, revision-scoped schemas and valid receipt context;
+  batch deterministic steps while preserving human drafts, Web leases, unknown
+  write handling, native geometry checks and save evidence.
+- Add an optional pure local evidence helper and experience-reuse rules. Records
+  remain candidates; no automatic geometry certification, training or promotion.
+- Validate the complete desktop extension inventory and immutable Web knowledge
+  baseline when packaging. All 13 shared knowledge files remain unchanged.
+- Codex distribution only. No Web, AI, Gateway, Cursor, MCP endpoint, installed
+  cache or running service changes. Static/fixture checks are separate from the
+  pending live end-to-end speed and saved/reopened modeling acceptance.
+
+# 0.2.0-beta.25 — account and panel candidate
 
 - Distinguish an unlisted target document from explicitly offline sessions.
 - Collapse the Web Assistant through its existing toolbar in plugin-owned tabs;

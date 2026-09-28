@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.25",
+  "version": "0.2.0-beta.27",
   "web_assistant_release": "20260925.1",
   "reference_bundle": {
     "version": "0.3.0-cas.1",
@@ -23,12 +23,20 @@
     "scripts/plan-fold-motion.cjs": "d604318a9b98018977ae839ebc4daceb0b30c3937d06157338b9a9283cf0daed"
   },
   "desktop_extensions": [
+    "references/modeling-recipes.md",
+    "scripts/modeling-recipes.cjs",
+    "scripts/verify-modeling-recipes.cjs",
+    "scripts/modeling-memory.cjs",
+    "references/modeling-fast-path.md",
+    "references/modeling-experience.md",
     "references/account-authorization.md",
     "references/assistant-panel.md",
     "references/assistant-workflow.md",
     "references/buttonless-connection.md",
     "references/mesh-reconstruction.md",
     "scripts/select-workspace.cjs",
+    "scripts/connect-codex.ps1",
+    "scripts/modeling-evidence.cjs",
     "scripts/assistant-panel.cjs",
     "scripts/authorize-account.cjs"
   ],

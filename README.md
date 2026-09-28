@@ -40,6 +40,6 @@ If the plugin needs authorization for your current account, it prepares a tempor
 
 ## Updates
 
-Use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Test package: **0.2.0-beta.25**. See the changelog for verified behavior and remaining account-switch acceptance.
+After a release is published, use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Local test candidate: **0.2.0-beta.27**. It adds bounded recipe planners, independent evidence checks and a task-local candidate index. Box, side blind-hole and through-hole runs passed native geometry, saving and reload checks. A controlled end-to-end speed comparison and general recipe certification remain pending; see the changelog and test checklist.
 
 [Website](https://nora3d.ai/codex) · [Changelog](CHANGELOG.md) · [Support](mailto:nora3d.ai@gmail.com)
