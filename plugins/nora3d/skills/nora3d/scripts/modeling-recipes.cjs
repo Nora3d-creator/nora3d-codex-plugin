@@ -3,6 +3,7 @@
 // Feed current raw context/catalog/evidence via stdin; execute through guarded MCP.
 const {createHash}=require('node:crypto');
 const {verifyGeometry}=require('./verify-modeling-recipes.cjs');
+const {guardedHeightAlias}=require('./native-height-contract.cjs');
 // Sorted-key hashes of reviewed, publicly returned input_schema, not an invented
 // server native-contract field. Schema drift requires review and a helper update.
 const SCHEMAS = {
@@ -228,7 +229,10 @@ function compilePlan(input) {
       const rows=(c.features||[]).filter(f=>String(f.id)===id(r.feature_id)&&f.uuid===r.feature_uuid);
       requireFact(rows.length===1&&rows[0].type==='Extrude','exact_current_extrude_required');
       const f=rows[0],p=f.parameters;
-      requireFact(object(p),'complete_native_init_required');
+      if(f.suppressed===true||f.rolled_off===true)stop('inactive_target_feature');
+      const nativeGuard=p==null&&guardedHeightAlias(capabilities);
+      requireFact(object(p)||nativeGuard,'complete_native_init_or_reviewed_host_guard_required');
+      if(!nativeGuard){
       const modes={ExtrudeType1:0,ExtrudeType2:-1,DraftType1:-1,DraftType2:-1,OffsetType:-1,ThinType:-1,DirectionType:0,MergeType:0};
       if(Object.entries(modes).some(([k,v])=>p[k]!==v)||![0,1].includes(p.Reverse)||![0,1].includes(p.InputDataType)||
         (p.MergeSolids!=null&&(!Array.isArray(p.MergeSolids)||p.MergeSolids.length)))stop('unsupported_extrude_mode');
@@ -239,10 +243,13 @@ function compilePlan(input) {
       for(const k of ['Expression','expression'])if(h[k]!=null&&h[k]!==''&&String(h[k]).trim()!==String(h.VariableValue))stop('expression_driven_height');
       const refs=p.InputDataType===1?p.LoopFirstCrvIds:[p.Sketch];
       requireFact(Array.isArray(refs)&&refs.length>0&&refs.every(v=>{try{return !!id(v);}catch{return false;}}),'original_contours_required');
-      if(f.suppressed===true||f.rolled_off===true)stop('inactive_target_feature');
+      }
       op('height','ccad.cmd_extrude.edit_extrude',{hid:Number(id(f.id)),feature_uuid:f.uuid,height:r.height_mm},'commit',false,'solid.extrude.edit');
       acceptance.push({check:'native_height_patch_only',feature_id:id(f.id),feature_uuid:f.uuid,height_mm:r.height_mm,
-        expected_edit_scope:'height_only',preserved_native_init:p,preserved_references:f.references||[],preserved_sketch_references:f.sketch_references||[]});next='native_verification';
+        expected_edit_scope:'height_only',preserved_native_init:p??null,
+        native_init_validation:nativeGuard?'reviewed_host_guard_before_dispatch':'client_and_host',
+        required_receipt:{edit_scope:'height_only',applied_patch:{height:r.height_mm}},
+        preserved_references:f.references||[],preserved_sketch_references:f.sketch_references||[]});next='native_verification';
     }else stop('unsupported_recipe');
     return {...base,status:'ready',recipe,stage:input.stage||'build',next_stage:next,
       binding:{...b},batch:{workspace_id:b.workspace_id,context_token:b.context_token,wait_seconds:20,steps},acceptance,

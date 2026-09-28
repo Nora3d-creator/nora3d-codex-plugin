@@ -1,6 +1,6 @@
-# Nora3D 0.2.0-beta.26: desktop acceptance
+# Nora3D 0.2.0-beta.28: desktop acceptance
 
-Confirm beta.26 in plugin Information and start a new task after installing the
+Confirm beta.28 in plugin Information and start a new task after installing the
 package. Keep only one Online Beta plugin enabled. Use disposable test documents.
 The new Web assistant page has no MCP button; keep the modeling tab in its normal
 mode. Only a separate temporary consent tab may use the existing compatibility

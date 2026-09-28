@@ -23,9 +23,13 @@ may be substituted for current facts. Preserve the returned acceptance items.
   exit and cut only from the actual saved sketch. Through cuts additionally
   need the supported native material-span evidence. A requested depth or bbox
   is not proof of a through-hole. Follow the helper's staged result contract.
-- `edit_extrude`: a located native feature ID/UUID and supported original
-  parameters are required before changing its height. Missing feature parameters
-  require a focused native probe. Never fill unknown values with defaults.
+- `edit_extrude`: locate the current native feature ID/UUID. With complete
+  original parameters, validate the supported plain extrusion mode. If parameters
+  are absent, only the exact reviewed live solid.extrude.edit capability can
+  delegate init validation to the existing host guard before native dispatch.
+  Generic edit/catalog defaults cannot substitute. Unsupported host modes reject;
+  never invent missing original parameters. Require the actual height_only receipt,
+  applied_patch, recomputed native dimensions, dependencies and save verification.
 
 Inspect the helper's input checks before use. Unsupported schemas, units,
 topology, draft ownership or stages require another supported method or a probe;
@@ -45,6 +49,10 @@ a parameter midpoint, not a circle center.
 
 The persistence checker needs an actual commit receipt and the matching current
 context. It proves the supported same-session save/display conditions only.
+Some live alias receipts omit effect. For the reviewed height alias only, also
+supply the original invocation (operation_id, operation, parameters) and current
+capabilities. The checker pins that contract and requires actual height_only,
+applied_patch, target identity and save ACKs; it never synthesizes an effect field.
 For controlled reopen acceptance, reload only an idle authorized test document,
 discover its new session, and independently inspect the saved geometry again.
 Never relabel an old save receipt as fresh-session verification.
@@ -53,3 +61,17 @@ One successful run is evidence for that run, not universal recipe certification.
 Keep failures and parameter variants with the recipe version. Promotion still
 requires independent replay, boundary/negative cases and unchanged quality.
 See [experience reuse](modeling-experience.md).
+
+## Offline decision prototype
+
+`scripts/modeling-decisions.cjs` exports prepareDecision and resolveDecision for
+the offline feature-choice-2 contract prototype. This is not a live Jev/MCP API.
+Do not send its DTO to an invented endpoint or enable a provider from the plugin.
+One proved legal method requires no model choice. Otherwise method and required
+role questions share one bounded projection with temporary IDs; document/session
+identity stays local. Unknown physical proof abstains, and unsupported geometry
+is not repaired by confidence. Cancellation, expiry, changed source/versions or
+invalid distributions discard the choice. Thresholds are conservative candidates,
+not measured geometric reliability. All outputs remain non-executable and never
+grant full acceptance. Live proof production and provider integration require
+separate implementation and authorization.

@@ -21,20 +21,29 @@ before geometric writes. Complex/multi-solid dependencies require
 [threads and lofts](thread-and-loft.md); mechanisms use [folding](folding.md);
 meshes use [mesh reconstruction](mesh-reconstruction.md). Library insertion,
 unfamiliar topology or an unresolved failure uses the [playbook](modeling-playbook.md).
-Do not load unrelated topics. Read [batches](fast-modeling.md) before the first
-batch, output-reference chain or paginated topology inspection in this task.
+Do not load unrelated topics. The batch contract below covers ordinary steps;
+read [advanced batches](fast-modeling.md) for integer aliases, composite solids
+or an unfamiliar result-reference contract.
 
 ## Bind, discover, then reuse
 
 - Keep the exact verified browser/tab, project/document, workspace and session.
   Check live status, deployment origins, actual permission and current modeling
-  state. A URL grants no access. Follow [connection](buttonless-connection.md)
-  on first use or a binding change, not before every command. A missing document
+  state. A URL grants no access. Use the connection checklist in SKILL.md;
+  read [connection recovery](buttonless-connection.md) for a missing/ambiguous
+  binding or failed reconnect, not before every command. A missing document
   is not proof of an account mismatch. Never choose the newest session by guess.
 - Read capabilities once for a binding/deployment and fetch only missing schemas,
   preferably together with `nora_get_catalog_schemas`. Cache schemas by deployment
   and `catalog_revision`; refresh affected data on a mismatch, reconnection or
   capability error. The live catalog is authoritative; never assume an entry count.
+- For a box and circular cut, fetch known schemas together:
+  ccad.cmd_box.create_box, ccad.cmd_sketch.create_sketch,
+  ccad.cmd_center_circle.create_circle, ccad.cmd_extrude_cut.create_extrude_cut,
+  ccad.host.retrieval_scene_entity_infos, plus ccad.host.set_menu_mode and
+  ccad.host.set_view_mode if presentation is needed. Search only missing entries;
+  do not separately search box, fit, hide and retrieval. These IDs are discovery
+  hints, not authority to execute an unavailable operation.
 - Keep complete tool data in the current host's available orchestration state.
   Return task-relevant identity, status, context, IDs, verification, save evidence
   and errors to the model instead of repeatedly printing full catalog/wrapper
@@ -56,7 +65,9 @@ batch, output-reference chain or paginated topology inspection in this task.
 ## Execute at real decision boundaries
 
 For an explicit box, a single planar hole or a located extrusion-height edit,
-consult [bounded recipe candidates](modeling-recipes.md). The optional local
+the optional [bounded recipe candidates](modeling-recipes.md) helper is available.
+Read its guide when using it or resolving a recipe-specific evidence gap; direct
+execution with the checks below does not require loading it. The local
 planner can compute a reviewable batch from the current raw context and schemas.
 Use it only when its preconditions match; `needs_probe` or `rejected` is not an
 executable plan. Other geometry continues through the task routes above.
@@ -73,6 +84,23 @@ Existing batch references are not arithmetic, loops or arbitrary scripts. Stop
 at a missing frame, unresolved target, unknown check or human intervention;
 resolve that uncertainty before constructing the next group. Failure/cancellation
 preserves already applied steps and is not automatic rollback.
+
+`nora_execute_batch(workspace_id, context_token, idempotency_key, steps,
+wait_seconds=20)` accepts 1-32 steps with `{id, operation, parameters,
+kind?:"operation"|"inspect", expect?:[{path,equals}]}`. A reference must be a
+standalone `{"$ref":"earlier_step.actual_output_path"}` object, never interpolated
+text. Use actual native outputs and type-correct aliases, keeping feature and
+entity IDs distinct. Missing outputs stop the batch. Never guess an exit-created
+sketch ID. `profile_check` must pass; unknown stops. Success still needs saved state.
+
+For a simple circular hole use these decision boundaries: create box and read
+native topology; create sketch on the proved face and inspect frame; draw from
+that frame, profile_check and exit in one batch when the current contract stops
+on unknown/failed profile; inspect returned analytic dimensions and saved sketch
+before cut; cut, native retrieval and final view may share a batch. If profile
+dimensions/identity are uncertain, stop before exit/cut and inspect. Through
+depth needs proved material span, not requested height or bbox. Bind the actual
+saved sketch ID. Retain cut commit/save evidence when the final step is a view.
 
 For each logical write keep one stable idempotency key. Prefer supported bounded
 waits with context included (`wait_seconds=20` on operation reads); poll again

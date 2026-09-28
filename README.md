@@ -40,6 +40,6 @@ If the plugin needs authorization for your current account, it prepares a tempor
 
 ## Updates
 
-After a release is published, use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Local test candidate: **0.2.0-beta.27**. It adds bounded recipe planners, independent evidence checks and a task-local candidate index. Box, side blind-hole and through-hole runs passed native geometry, saving and reload checks. A controlled end-to-end speed comparison and general recipe certification remain pending; see the changelog and test checklist.
+After a release is published, use **Upgrade** on the Git marketplace, then install the updated plugin if the installed version is still older. Start a new task after updating. Test release: **0.2.0-beta.28**. It consolidates the normal modeling entry and supports the reviewed host height-edit guard when client parameters are absent. Box, blind/through hole and height-edit runs passed native geometry, saving and reload checks. An offline Jev contract prototype is included; full Jev reconstruction, controlled isolated-agent A/B and general recipe certification remain pending.
 
 [Website](https://nora3d.ai/codex) · [Changelog](CHANGELOG.md) · [Support](mailto:nora3d.ai@gmail.com)

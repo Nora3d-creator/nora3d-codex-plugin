@@ -1,3 +1,19 @@
+# 0.2.0-beta.28 — focused entry and guarded height edits
+
+- Consolidate normal connection, completion and bounded batches into the entry
+  and execution core. Load detailed recovery guides on their actual triggers;
+  retain guidance across login and fetch known operation schemas together.
+- Use the exact reviewed live height-only alias when client feature parameters
+  are absent. The existing host validates native init before dispatch. Verify
+  applied_patch, actual dimensions and save ACKs without inventing missing fields.
+- Live 20x10x8 to 20x10x14 extrusion edit passed native measurements, save and
+  new-session reload, with the two unrelated bodies unchanged.
+- Add an offline Jev decision-contract prototype with bounded projection,
+  abstention, cancellation, expiry and source/version invalidation. It makes no
+  provider call and does not implement full native mesh reconstruction.
+- No Web, Gateway, AI or shared reference changes. Controlled isolated agent A/B
+  is still pending; guide size reductions are not measured end-to-end speedups.
+
 # 0.2.0-beta.27 — bounded recipes and task-local experience
 
 - Add optional pure local planners for explicit boxes, staged planar holes and

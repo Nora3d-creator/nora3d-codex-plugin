@@ -11,6 +11,7 @@
 // Exit 0: passes; 1: failed checks; 2: malformed JSON/unsupported CLI request.
 
 const TOL = 1e-5; // Fixed millimeter tolerance; callers cannot relax acceptance.
+const {guardedHeightCommit}=require('./native-height-contract.cjs');
 const AXES = ['x', 'y', 'z'];
 const GEOMETRY_SCOPE = 'axis_aligned_box_single_cylindrical_hole';
 const IDENTITIES = ['workspace_id', 'project_id', 'document_id', 'version_id', 'session_epoch'];
@@ -175,7 +176,8 @@ function verifyPersistence(input) {
     revision: revision(saved) ? saved : null, checks, geometry_verified: false, reopen_verified: false,
     limitation: 'Validates a real-shaped commit ACK against a supplied current same-session context and binding. Caller must preserve evidence provenance; this does not authenticate JSON or certify reload persistence.' });
   if (!check('commit_receipt_shape', obj(receipt) && obj(result) && scalarId(receipt.operation_id)
-    && receipt.kind === 'operation' && receipt.effect === 'commit' && receipt.readonly === false
+    && receipt.kind === 'operation' && (receipt.effect === 'commit'
+      || guardedHeightCommit(receipt,input.invocation,input.capabilities)) && receipt.readonly === false
     && receipt.status === 'succeeded' && result.ok === true && receipt.error == null
     && result.draft_applied !== true && receipt.result_context_is_current === true,
   'Requires a succeeded, current, non-readonly commit with a successful host result.')) return finish();

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.2.0-beta.27",
+  "version": "0.2.0-beta.28",
   "web_assistant_release": "20260925.1",
   "reference_bundle": {
     "version": "0.3.0-cas.1",
@@ -38,7 +38,9 @@
     "scripts/connect-codex.ps1",
     "scripts/modeling-evidence.cjs",
     "scripts/assistant-panel.cjs",
-    "scripts/authorize-account.cjs"
+    "scripts/authorize-account.cjs",
+    "scripts/modeling-decisions.cjs",
+    "scripts/native-height-contract.cjs"
   ],
   "scope": "Codex distribution only; Web runtime, shared capability source and Cursor are unchanged."
 }
