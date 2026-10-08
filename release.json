@@ -49,7 +49,8 @@
     "plugins/nora3d/skills/nora3d/scripts/select-workspace.cjs": "4633eb5b3974b2be46cda01eb49a1947e2f04180f99946ad933c646fba76154b",
     "plugins/nora3d/skills/nora3d/scripts/verify-modeling-recipes.cjs": "db854ae40f5502c2eac803877ad888660414e1d3b09f701bfcd5a2cc67d25943",
     "plugins/nora3d/skills/nora3d/SKILL.md": "bd77138a77563a39da57a753a0259db66afb00977676d922679ad398e56cc77e",
-    "README.md": "3738f0491dc4685e0dfd0dd3c8b78b7a04317035011f7d0dd5292e1ee6630afc",
-    "TEST-CHECKLIST.md": "343db41f0f05ada4493767b8d5a6286fd528d8bfd4eb9e7f92b9af818796af75"
+    "README.md": "2f75d179c565cbf8866004155fdeb12bd9c887080cf54522055f2b5989811126",
+    "TEST-CHECKLIST.md": "343db41f0f05ada4493767b8d5a6286fd528d8bfd4eb9e7f92b9af818796af75",
+    "NEW-USER-INSTALL-ACCEPTANCE.md": "eb34e5d6bd064ca715c6ccf02e48e232d269595889de55f58ac180ac8863b189"
   }
 }
